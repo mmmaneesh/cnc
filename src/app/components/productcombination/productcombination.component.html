@@ -1,0 +1,61 @@
+<div class="container custommodal">
+    <div class="row toolbarcolor">
+        <div class="col-md-3">
+            
+        </div>
+        <div class="col-md-5" style="text-align: center;">
+            <h5>PRODUCT COMBINATION</h5>
+        </div>
+        <div class="col-md-4" style="text-align: right;">
+            
+            <svg-icon src="../../../assets/images/close.svg" [stretch]="true" (click)="onNoClick()"
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <!-- <button class="close buttoncolor" mat-button (click)="onNoClick()">X</button> -->
+        </div>
+    </div>
+    <br />
+    <br />
+    <div *ngIf="showSpinner" style="display: flex;justify-content: center;align-items: center; z-index: 15000; position:absolute; top: 50%; left: 45%;">
+        <mat-spinner  color="warn"></mat-spinner>
+    </div>
+    <div class="row" style="padding-bottom: 40px;">
+        
+        <div class="col-md-4">
+            <div class="card component-card_1" (click)="FirstProductClick()">
+                <div class="card-body">
+                    <h6>{{this.productfirst}} - ml</h6>
+                    <h6>{{this.productsecond}} - ml</h6>
+                    <h6>{{this.productthird}} - ml</h6>
+                    <h6>Total Protein : {{this.totalproteinfirst}}</h6>
+                    <h6>Total Calorie : {{this.totalcaloriefirst}}</h6>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card component-card_1" (click)="SecondProductClick()">
+                <div class="card-body">
+                    <h6>{{this.productfourth}} - ml</h6>
+                    <h6>{{this.productfifth}} - ml</h6>
+                    <h6>{{this.productsixth}} - ml</h6>
+                    <h6>Total Protein : {{this.totalproteinsecond}}</h6>
+                    <h6>Total Calorie : {{this.totalcaloriesecond}}</h6>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card component-card_1" (click)="ThirdProductClick()">
+                <div class="card-body">
+                    <h6>{{this.productseventh}} - ml</h6>
+                    <h6>{{this.producteighth}} - ml</h6>
+                    <h6>{{this.productninth}} - ml</h6>
+                    <h6>Total Protein : {{this.totalproteinthird}}</h6>
+                    <h6>Total Calorie : {{this.totalcaloriethird}}</h6>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

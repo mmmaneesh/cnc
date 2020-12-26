@@ -1,0 +1,1695 @@
+<!-- <button class="close buttoncolor" mat-button (click)="onNoClick()">X</button> -->
+<div class="container custommodal">
+    <!-- <mat-toolbar class="toolbarcolor" style="padding-left: 45%;">
+        SOFA SCORE
+    </mat-toolbar> -->
+    <div class="row toolbarcolor">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                        <mat-form-field style="border-radius: 5px;  background-color: #191E3A; height: 35px;  ">
+                        
+
+                                <input placeholder="Choose Date" style="color: whitesmoke;" (dateChange)="dateValueChanged($event)"
+                                  matInput [matDatepicker]="picker" [(ngModel)]="todaydate" >
+                                <mat-datepicker-toggle style="color: whitesmoke;  "  matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker  #picker ></mat-datepicker>
+                              </mat-form-field>
+                </div>
+                <!-- <div class="col-md-6">
+                        <select class="form-control  basic selectclass" (change)="onChange($event)" >
+                            <option *ngFor="let item of responseData" value= {{item}}>
+                                {{item}}
+                              </option>
+                                
+                            </select>
+                    </div> -->
+            </div>
+                
+
+                      
+            
+        </div>
+        <div class="col-md-3" style="text-align: center;">
+            <h5>APPACHE SCORE</h5>
+        </div>
+        <div class="col-md-3" style="text-align: right;">
+            <svg-icon src="../../../assets/images/write.svg" [stretch]="true" 
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <svg-icon src="../../../assets/images/note.svg" [stretch]="true" (click)="newappachescore()"
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <svg-icon src="../../../assets/images/close.svg" [stretch]="true" (click)="onNoClick()"
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <!-- <button class="close buttoncolor" mat-button (click)="onNoClick()">X</button> -->
+        </div>
+    </div>
+    
+
+    
+    <div class="innercontainer" style="padding-top: 15px; margin-bottom:10px;">
+        <div id="toggleAccordion">
+            <div class="card">
+                <div class="card-header" id="headingOne1">
+                    <section class="mb-0 mt-0">
+                        <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionOne" aria-expanded="true" aria-controls="defaultAccordionOne">
+                            <div class="icons">
+                            <div class="row" >
+                                <div class="col-md-4" style="text-align: left;">
+                                    <span>Temperature</span>
+                                </div>
+                                <div class="col-md-1" style="text-align: left;" (click)="Temperaturedataclick()">
+                                    <span>{{this.TemperatureValue}}</span>
+                                </div>
+                                <div class="col-md-2" style="text-align: left;">
+                                    <span>{{this.TemperaturePoint}}</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <span>{{this.TemperaturePer}}</span>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <img src="../../../assets/images/respiratory.png" width="65" height="45" />
+                                </div>
+                                <div class="col-md-2" style="text-align: right;" (click)="Temperatureclick()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                            </div>    
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div id="defaultAccordionOne" class="collapse" aria-labelledby="headingOne1" data-parent="#toggleAccordion">
+                    <div class="card-body">
+                        <div class="row moveup" *ngIf="isdropdownclickone" >
+                            <div class="col-md-3">
+
+                            </div>
+                            <div class="col-md-9">
+                                <div class="n-chk" >
+                                    <label class="new-control new-radio radio-classic-primary">
+                                      <input type="radio" class="new-control-input" name="graph" value="grid" checked (change)="gridClick($event)">
+                                      <span class="new-control-indicator"></span>Grid 
+                                      
+                                      
+                                    </label>
+                                    <label class="new-control new-radio radio-classic-primary">
+                                    <input type="radio" class="new-control-input" name="graph" value="graph" (change)="gridClick($event)">
+                                      <span class="new-control-indicator"></span>Graph 
+                                    </label>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button class="btn btn-outline-primary mb-2" (click)="Temperaturedailyscorebutton()">DAILY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="Temperaturehourlycorebutton()">HOURLY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="Temperaturedeltascorebutton()">DELTA SCORE</button>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="widget widget-chart-one" *ngIf="isgraphone">
+                                    <div style="text-align:center">
+                                        <apx-chart
+                                            [series]="chartOptionsTemperature.series"
+                                            [chart]="chartOptionsTemperature.chart"
+                                            [xaxis]="chartOptionsTemperature.xaxis"
+                                            
+                                            
+                                            
+                                        ></apx-chart>
+                                      </div>
+                                </div>
+                                <div style="text-align:center" *ngIf="isgridone">
+                                    <div *ngIf="isdailyTemperatureshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    <th *ngIf="isDailyhourTemperature">DATE</th>
+                                                    <th *ngFor="let dd of datelist" (click)="dailyclickTemperature(dd)">{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td *ngIf="isDailyhourTemperature">SCORE</td>
+                                                <td *ngFor="let dt of dailyhourTemperature">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="ishourlyTemperatureshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of hourlyTemperaturelabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of hourlyTemperaturescore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="isdeltaTemperatureshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of deltaTemperaturelabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of deltaTemperaturescore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div style="text-align:center" *ngIf="isSplitdateShownTemperature">
+                                    
+                                    <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                        <thead>
+                                            <tr>
+                                                <th>SCORE</th>
+                                                <th>TEMPERATURE</th>
+                                                
+                                                <th>READTIME</th>
+                                                <th>READBY</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let tmp of detailedTemperature">
+                                            <td>{{tmp.SCORE}}</td>
+                                            <td>{{tmp.TEMPERATURE}}</td>
+                                            
+                                            <td>{{tmp.READTIME}}</td>
+                                            <td>{{tmp.READBY}}</td>
+                                            
+                                          </tr>
+                                          
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                    <div class="card-header" id="headingOne2">
+                        <section class="mb-0 mt-0">
+                            <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionTwo" aria-expanded="true" aria-controls="defaultAccordionTwo">
+                                <div class="icons">
+                                <div class="row" >
+                                    <div class="col-md-4" style="text-align: left;">
+                                        <span>Mean Arterial Rate</span>
+                                    </div>
+                                    <div class="col-md-1" style="text-align: left;" (click)="MeanArterialRatedataclick()">
+                                        <span>{{this.MeanArterialRateValue}}</span>
+                                    </div>
+                                    <div class="col-md-2" style="text-align: left;">
+                                        <span>{{this.MeanArterialRatePoint}}</span>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <span>{{this.MeanArterialRatePer}}</span>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="../../../assets/images/nervous.png" width="65" height="45" />
+                                    </div>
+                                    <div class="col-md-2" style="text-align: right;" (click)="MeanArterialRateclick()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                    </div>
+                                </div>    
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div id="defaultAccordionTwo" class="collapse" aria-labelledby="headingTwo1" data-parent="#toggleAccordion">
+                        <div class="card-body">
+                            <div class="row moveup" *ngIf="isdropdownclicktwo" >
+                                <div class="col-md-3">
+
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="n-chk" >
+                                        <label class="new-control new-radio radio-classic-primary">
+                                          <input type="radio" class="new-control-input" name="graph" value="grid" checked (change)="gridClick2($event)">
+                                          <span class="new-control-indicator"></span>Grid 
+                                          
+                                          
+                                        </label>
+                                        <label class="new-control new-radio radio-classic-primary">
+                                        <input type="radio" class="new-control-input" name="graph" value="graph" (change)="gridClick2($event)">
+                                          <span class="new-control-indicator"></span>Graph 
+                                        </label>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <button class="btn btn-outline-primary mb-2" (click)="MeanArterialRatedailyscorebutton()">DAILY SCORE</button>
+                                    <button class="btn btn-outline-primary mb-2" (click)="MeanArterialRatehourlycorebutton()">HOURLY SCORE</button>
+                                    <button class="btn btn-outline-primary mb-2" (click)="MeanArterialRatedeltascorebutton()">DELTA SCORE</button>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget widget-chart-one" *ngIf="isgraphtwo">
+                                        <div style="text-align:center">
+                                            <apx-chart
+                                                [series]="chartOptionsMeanArterialRate.series"
+                                                [chart]="chartOptionsMeanArterialRate.chart"
+                                                [xaxis]="chartOptionsMeanArterialRate.xaxis"
+                                                
+                                                
+                                                
+                                            ></apx-chart>
+                                          </div>
+                                    </div>
+                                    <div style="text-align:center" *ngIf="isgridtwo">
+                                        <div *ngIf="isdailyMeanArterialRateshown">
+                                            <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                                <thead>
+                                                    <tr>
+                                                        <th *ngIf="isDailyhourMeanArterialRate">DATE</th>
+                                                        <th *ngFor="let dd of datelistMeanArterialRate" (click)="dailyclickMeanArterialRate(dd)">{{dd}}</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td *ngIf="isDailyhourMeanArterialRate">SCORE</td>
+                                                    <td *ngFor="let dt of dailyhourMeanArterialRate">{{dt}}</td>
+                                                    
+                                                </tr>
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div *ngIf="ishourlyMeanArterialRateshown">
+                                            <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                                <thead>
+                                                    <tr>
+                                                        
+                                                        <th *ngFor="let dd of hourlyMeanArterialRatelabel" >{{dd}}</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    
+                                                    <td *ngFor="let dt of hourlyMeanArterialRatescore">{{dt}}</td>
+                                                    
+                                                </tr>
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div *ngIf="isdeltaMeanArterialRateshown">
+                                            <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                                <thead>
+                                                    <tr>
+                                                        
+                                                        <th *ngFor="let dd of deltaMeanArterialRatelabel" >{{dd}}</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    
+                                                    <td *ngFor="let dt of deltaMeanArterialRatescore">{{dt}}</td>
+                                                    
+                                                </tr>
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div style="text-align:center" *ngIf="isSplitdateShownMeanArterialRate">
+                                        
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    <th>SCORE</th>
+                                                    <th>MEAN_ARTERIAL_PRESSURE</th>
+                                                    
+                                                    <th>READTIME</th>
+                                                    <th>READBY</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr *ngFor="let tmp of detailedMeanArterialRate">
+                                                <td>{{tmp.SCORE}}</td>
+                                                <td>{{tmp.MEAN_ARTERIAL_PRESSURE}</td>
+                                                
+                                                <td>{{tmp.READTIME}}</td>
+                                                <td>{{tmp.READBY}}</td>
+                                                
+                                              </tr>
+                                              
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="card">
+                    <div class="card-header" id="headingOne3">
+                        <section class="mb-0 mt-0">
+                            <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionThree" aria-expanded="true" aria-controls="defaultAccordionThree">
+                                <div class="icons">
+                                <div class="row" >
+                                    <div class="col-md-4" style="text-align: left;">
+                                        <span>Heart Rate</span>
+                                    </div>
+                                    <div class="col-md-1" style="text-align: left;" (click)="HeartRatedataclick()">
+                                        <span>{{this.HeartRateValue}}</span>
+                                    </div>
+                                    <div class="col-md-2" style="text-align: left;">
+                                        <span>{{this.HeartRatePoint}}</span>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <span>{{this.HeartRatePer}}</span>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="../../../assets/images/liver.png" width="65" height="45" />
+                                    </div>
+                                    <div class="col-md-2" style="text-align: right;" (click)="HeartRateclick()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                    </div>
+                                </div>    
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div id="defaultAccordionThree" class="collapse" aria-labelledby="headingThree1" data-parent="#toggleAccordion">
+                        <div class="card-body">
+                            <div class="row moveup" *ngIf="isdropdownclickthree" >
+                                <div class="col-md-3">
+
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="n-chk" >
+                                        <label class="new-control new-radio radio-classic-primary">
+                                          <input type="radio" class="new-control-input" name="graph" value="grid" checked (change)="gridClick3($event)">
+                                          <span class="new-control-indicator"></span>Grid 
+                                          
+                                          
+                                        </label>
+                                        <label class="new-control new-radio radio-classic-primary">
+                                        <input type="radio" class="new-control-input" name="graph" value="graph" (change)="gridClick3($event)">
+                                          <span class="new-control-indicator"></span>Graph 
+                                        </label>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <button class="btn btn-outline-primary mb-2" (click)="HeartRatedailyscorebutton()">DAILY SCORE</button>
+                                    <button class="btn btn-outline-primary mb-2" (click)="HeartRatehourlycorebutton()">HOURLY SCORE</button>
+                                    <button class="btn btn-outline-primary mb-2" (click)="HeartRatedeltascorebutton()">DELTA SCORE</button>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget widget-chart-one" *ngIf="isgraphthree">
+                                        <div style="text-align:center">
+                                            <apx-chart
+                                                [series]="chartOptionsHeartRate.series"
+                                                [chart]="chartOptionsHeartRate.chart"
+                                                [xaxis]="chartOptionsHeartRate.xaxis"
+                                                
+                                                
+                                                
+                                            ></apx-chart>
+                                          </div>
+                                    </div>
+                                    <div style="text-align:center" *ngIf="isgridthree">
+                                        <div *ngIf="isdailyHeartRateshown">
+                                            <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                                <thead>
+                                                    <tr>
+                                                        <th *ngIf="isDailyhourHeartRate">DATE</th>
+                                                        <th *ngFor="let dd of datelist" (click)="dailyclickHeartRate(dd)">{{dd}}</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td *ngIf="isDailyhourHeartRate">SCORE</td>
+                                                    <td *ngFor="let dt of dailyhourHeartRate">{{dt}}</td>
+                                                    
+                                                </tr>
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div *ngIf="ishourlyHeartRateshown">
+                                            <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                                <thead>
+                                                    <tr>
+                                                        
+                                                        <th *ngFor="let dd of hourlyHeartRatelabel" >{{dd}}</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    
+                                                    <td *ngFor="let dt of hourlyHeartRatescore">{{dt}}</td>
+                                                    
+                                                </tr>
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div *ngIf="isdeltaHeartRateshown">
+                                            <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                                <thead>
+                                                    <tr>
+                                                        
+                                                        <th *ngFor="let dd of deltaHeartRatelabel" >{{dd}}</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    
+                                                    <td *ngFor="let dt of deltaHeartRatescore">{{dt}}</td>
+                                                    
+                                                </tr>
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div style="text-align:center" *ngIf="isSplitdateShownHeartRate">
+                                        
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    <th>SCORE</th>
+                                                    <th>CREATININE</th>
+                                                    <th>URINE_OUTPUT</th>
+                                                    <th>READTIME</th>
+                                                    <th>READBY</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr *ngFor="let tmp of detailedHeartRate">
+                                                <td>{{tmp.SCORE}}</td>
+                                                <td>{{tmp.CREATININE}}</td>
+                                                <td>{{tmp.URINE_OUTPUT}}</td>
+                                                <td>{{tmp.READTIME}}</td>
+                                                <td>{{tmp.READBY}}</td>
+                                                
+                                              </tr>
+                                              
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+            </div>
+            
+            <div class="card">
+                    <div class="card-header" id="headingOne4">
+                        <section class="mb-0 mt-0">
+                            <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionFour" aria-expanded="true" aria-controls="defaultAccordionFour">
+                                <div class="icons">
+                                <div class="row" >
+                                    <div class="col-md-4" style="text-align: left;">
+                                        <span>Respiratory Rate</span>
+                                    </div>
+                                    <div class="col-md-1" style="text-align: left;" (click)="RespiratoryRatedataclick()">
+                                        <span>{{this.RespiratoryRateValue}}</span>
+                                    </div>
+                                    <div class="col-md-2" style="text-align: left;">
+                                        <span>{{this.RespiratoryRatePoint}}</span>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <span>{{this.RespiratoryRatePer}}</span>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="../../../assets/images/coagulation.jpg" width="65" height="45" />
+                                    </div>
+                                    <div class="col-md-2" style="text-align: right;" (click)="RespiratoryRateclick()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                    </div>
+                                </div>    
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div id="defaultAccordionFour" class="collapse" aria-labelledby="headingFour1" data-parent="#toggleAccordion">
+                        <div class="card-body">
+                            <div class="row moveup" *ngIf="isdropdownclickfour" >
+                                <div class="col-md-3">
+
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="n-chk" >
+                                        <label class="new-control new-radio radio-classic-primary">
+                                          <input type="radio" class="new-control-input" name="graph" value="grid" checked (change)="gridClick4($event)">
+                                          <span class="new-control-indicator"></span>Grid 
+                                          
+                                          
+                                        </label>
+                                        <label class="new-control new-radio radio-classic-primary">
+                                        <input type="radio" class="new-control-input" name="graph" value="graph" (change)="gridClick4($event)">
+                                          <span class="new-control-indicator"></span>Graph 
+                                        </label>
+                                    </div>
+                                </div>
+
+
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <button class="btn btn-outline-primary mb-2" (click)="RespiratoryRatedailyscorebutton()">DAILY SCORE</button>
+                                    <button class="btn btn-outline-primary mb-2" (click)="RespiratoryRatehourlycorebutton()">HOURLY SCORE</button>
+                                    <button class="btn btn-outline-primary mb-2" (click)="RespiratoryRatedeltascorebutton()">DELTA SCORE</button>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="widget widget-chart-one" *ngIf="isgraphfour">
+                                        <div style="text-align:center">
+                                            <apx-chart
+                                                [series]="chartOptionsRespiratoryRate.series"
+                                                [chart]="chartOptionsRespiratoryRate.chart"
+                                                [xaxis]="chartOptionsRespiratoryRate.xaxis"
+                                                
+                                                
+                                                
+                                            ></apx-chart>
+                                          </div>
+                                    </div>
+                                    <div style="text-align:center" *ngIf="isgridfour">
+                                        <div *ngIf="isdailyRespiratoryRateshown">
+                                            <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                                <thead>
+                                                    <tr>
+                                                        <th *ngIf="isDailyhourRespiratoryRate">DATE</th>
+                                                        <th *ngFor="let dd of datelist" (click)="dailyclickRespiratoryRate(dd)">{{dd}}</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td *ngIf="isDailyhourRespiratoryRate">SCORE</td>
+                                                    <td *ngFor="let dt of dailyhourRespiratoryRate">{{dt}}</td>
+                                                    
+                                                </tr>
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div *ngIf="ishourlyRespiratoryRateshown">
+                                            <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                                <thead>
+                                                    <tr>
+                                                        
+                                                        <th *ngFor="let dd of hourlyRespiratoryRatelabel" >{{dd}}</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    
+                                                    <td *ngFor="let dt of hourlyRespiratoryRatescore">{{dt}}</td>
+                                                    
+                                                </tr>
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div *ngIf="isdeltaRespiratoryRateshown">
+                                            <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                                <thead>
+                                                    <tr>
+                                                        
+                                                        <th *ngFor="let dd of deltaRespiratoryRatelabel" >{{dd}}</th>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    
+                                                    <td *ngFor="let dt of deltaRespiratoryRatescore">{{dt}}</td>
+                                                    
+                                                </tr>
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div style="text-align:center" *ngIf="isSplitdateShownRespiratoryRate">
+                                        
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    <th>SCORE</th>
+                                                    <th>CREATININE</th>
+                                                    <th>URINE_OUTPUT</th>
+                                                    <th>READTIME</th>
+                                                    <th>READBY</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr *ngFor="let tmp of detailedRespiratoryRate">
+                                                <td>{{tmp.SCORE}}</td>
+                                                <td>{{tmp.CREATININE}}</td>
+                                                <td>{{tmp.URINE_OUTPUT}}</td>
+                                                <td>{{tmp.READTIME}}</td>
+                                                <td>{{tmp.READBY}}</td>
+                                                
+                                              </tr>
+                                              
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingOne5">
+                    <section class="mb-0 mt-0">
+                        <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionFive" aria-expanded="true" aria-controls="defaultAccordionFive">
+                            <div class="icons">
+                            <div class="row" >
+                                <div class="col-md-4" style="text-align: left;">
+                                    <span>Arterial Rate</span>
+                                </div>
+                                <div class="col-md-1" style="text-align: left;" (click)="ArterialRatedataclick()">
+                                    <span>{{this.ArterialRateValue}}</span>
+                                </div>
+                                <div class="col-md-2" style="text-align: left;">
+                                    <span>{{this.ArterialRatePoint}}</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <span>{{this.ArterialRatePer}}</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <img src="../../../assets/images/kidney.jpg" width="65" height="45" />
+                                </div>
+                                <div class="col-md-2" style="text-align: right;" (click)="ArterialRateclick()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                            </div>    
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div id="defaultAccordionFive" class="collapse" aria-labelledby="headingFive1" data-parent="#toggleAccordion">
+                    <div class="card-body">
+                        <div class="row moveup" *ngIf="isdropdownclickfive" >
+                            <div class="col-md-3">
+
+                            </div>
+                            <div class="col-md-9">
+                                <div class="n-chk" >
+                                    <label class="new-control new-radio radio-classic-primary">
+                                      <input type="radio" class="new-control-input" name="graph" value="grid" checked (change)="gridClick5($event)">
+                                      <span class="new-control-indicator"></span>Grid 
+                                      
+                                      
+                                    </label>
+                                    <label class="new-control new-radio radio-classic-primary">
+                                    <input type="radio" class="new-control-input" name="graph" value="graph" (change)="gridClick5($event)">
+                                      <span class="new-control-indicator"></span>Graph 
+                                    </label>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button class="btn btn-outline-primary mb-2" (click)="ArterialRatedailyscorebutton()">DAILY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="ArterialRatehourlycorebutton()">HOURLY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="ArterialRatedeltascorebutton()">DELTA SCORE</button>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="widget widget-chart-one" *ngIf="isgraphfive">
+                                    <div style="text-align:center">
+                                        <apx-chart
+                                            [series]="chartOptionsArterialRate.series"
+                                            [chart]="chartOptionsArterialRate.chart"
+                                            [xaxis]="chartOptionsArterialRate.xaxis"
+                                            
+                                            
+                                            
+                                        ></apx-chart>
+                                      </div>
+                                </div>
+                                <div style="text-align:center" *ngIf="isgridfive">
+                                    <div *ngIf="isdailyArterialRateshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    <th *ngIf="isDailyhourArterialRate">DATE</th>
+                                                    <th *ngFor="let dd of datelist" (click)="dailyclickArterialRate(dd)">{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td *ngIf="isDailyhourArterialRate">SCORE</td>
+                                                <td *ngFor="let dt of dailyhourArterialRate">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="ishourlyArterialRateshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of hourlyArterialRatelabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of hourlyArterialRatescore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="isdeltaArterialRateshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of deltaArterialRatelabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of deltaArterialRatescore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div style="text-align:center" *ngIf="isSplitdateShownArterialRate">
+                                    
+                                    <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                        <thead>
+                                            <tr>
+                                                <th>SCORE</th>
+                                                <th>CREATININE</th>
+                                                <th>URINE_OUTPUT</th>
+                                                <th>READTIME</th>
+                                                <th>READBY</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let tmp of detailedArterialRate">
+                                            <td>{{tmp.SCORE}}</td>
+                                            <td>{{tmp.CREATININE}}</td>
+                                            <td>{{tmp.URINE_OUTPUT}}</td>
+                                            <td>{{tmp.READTIME}}</td>
+                                            <td>{{tmp.READBY}}</td>
+                                            
+                                          </tr>
+                                          
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-header" id="headingOne6">
+                    <section class="mb-0 mt-0">
+                        <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionSix" aria-expanded="true" aria-controls="defaultAccordionSix">
+                            <div class="icons">
+                            <div class="row" >
+                                <div class="col-md-4" style="text-align: left;">
+                                    <span>Potassium</span>
+                                </div>
+                                <div class="col-md-1" style="text-align: left;" (click)="WBCdataclick()">
+                                    <span>{{this.WBCValue}}</span>
+                                </div>
+                                <div class="col-md-2" style="text-align: left;">
+                                    <span>{{this.WBCPoint}}</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <span>{{this.WBCPer}}</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <img src="../../../assets/images/coagulation.jpg" width="65" height="45" />
+                                </div>
+                                <div class="col-md-2" style="text-align: right;" (click)="WBCclick()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                            </div>    
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div id="defaultAccordionSix" class="collapse" aria-labelledby="headingSix1" data-parent="#toggleAccordion">
+                    <div class="card-body">
+                        <div class="row moveup" *ngIf="isdropdownclickfive" >
+                            <div class="col-md-3">
+
+                            </div>
+                            <div class="col-md-9">
+                                <div class="n-chk" >
+                                    <label class="new-control new-radio radio-classic-primary">
+                                    <input type="radio" class="new-control-input" name="graph" value="grid" checked (change)="gridClick4($event)">
+                                    <span class="new-control-indicator"></span>Grid 
+                                    
+                                    
+                                    </label>
+                                    <label class="new-control new-radio radio-classic-primary">
+                                    <input type="radio" class="new-control-input" name="graph" value="graph" (change)="gridClick4($event)">
+                                    <span class="new-control-indicator"></span>Graph 
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button class="btn btn-outline-primary mb-2" (click)="WBCdailyscorebutton()">DAILY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="WBChourlycorebutton()">HOURLY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="WBCdeltascorebutton()">DELTA SCORE</button>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="widget widget-chart-one" *ngIf="isgraphsix">
+                                    <div style="text-align:center">
+                                        <apx-chart
+                                            [series]="chartOptionsWBC.series"
+                                            [chart]="chartOptionsWBC.chart"
+                                            [xaxis]="chartOptionsWBC.xaxis"
+                                            
+                                            
+                                            
+                                        ></apx-chart>
+                                    </div>
+                                </div>
+                                <div style="text-align:center" *ngIf="isgridsix">
+                                    <div *ngIf="isdailyWBCshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    <th *ngIf="isDailyhourWBC">DATE</th>
+                                                    <th *ngFor="let dd of datelist" (click)="dailyclickWBC(dd)">{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td *ngIf="isDailyhourWBC">SCORE</td>
+                                                <td *ngFor="let dt of dailyhourWBC">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="ishourlyWBCshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of hourlyWBClabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of hourlyWBCscore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="isdeltaWBCshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of deltaWBClabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of deltaWBCscore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div style="text-align:center" *ngIf="isSplitdateShownWBC">
+                                    
+                                    <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                        <thead>
+                                            <tr>
+                                                <th>SCORE</th>
+                                                <th>CREATININE</th>
+                                                <th>URINE_OUTPUT</th>
+                                                <th>READTIME</th>
+                                                <th>READBY</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let tmp of detailedWBC">
+                                            <td>{{tmp.SCORE}}</td>
+                                            <td>{{tmp.CREATININE}}</td>
+                                            <td>{{tmp.URINE_OUTPUT}}</td>
+                                            <td>{{tmp.READTIME}}</td>
+                                            <td>{{tmp.READBY}}</td>
+                                            
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingOne7">
+                    <section class="mb-0 mt-0">
+                        <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionSeven" aria-expanded="true" aria-controls="defaultAccordionSeven">
+                            <div class="icons">
+                            <div class="row" >
+                                <div class="col-md-4" style="text-align: left;">
+                                    <span>Serium Sodium</span>
+                                </div>
+                                <div class="col-md-1" style="text-align: left;" (click)="SeriumSodiumdataclick()">
+                                    <span>{{this.SeriumSodiumValue}}</span>
+                                </div>
+                                <div class="col-md-2" style="text-align: left;">
+                                    <span>{{this.SeriumSodiumPoint}}</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <span>{{this.SeriumSodiumPer}}</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <img src="../../../assets/images/coagulation.jpg" width="65" height="45" />
+                                </div>
+                                <div class="col-md-2" style="text-align: right;" (click)="SeriumSodiumclick()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                            </div>    
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div id="defaultAccordionSeven" class="collapse" aria-labelledby="headingSeven1" data-parent="#toggleAccordion">
+                    <div class="card-body">
+                        <div class="row moveup" *ngIf="isdropdownclickseven" >
+                            <div class="col-md-3">
+
+                            </div>
+                            <div class="col-md-9">
+                                <div class="n-chk" >
+                                    <label class="new-control new-radio radio-classic-primary">
+                                    <input type="radio" class="new-control-input" name="graph" value="grid" checked (change)="gridClick7($event)">
+                                    <span class="new-control-indicator"></span>Grid 
+                                    
+                                    
+                                    </label>
+                                    <label class="new-control new-radio radio-classic-primary">
+                                    <input type="radio" class="new-control-input" name="graph" value="graph" (change)="gridClick7($event)">
+                                    <span class="new-control-indicator"></span>Graph 
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button class="btn btn-outline-primary mb-2" (click)="SeriumSodiumdailyscorebutton()">DAILY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="SeriumSodiumhourlycorebutton()">HOURLY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="SeriumSodiumdeltascorebutton()">DELTA SCORE</button>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="widget widget-chart-one" *ngIf="isgraphseven">
+                                    <div style="text-align:center">
+                                        <apx-chart
+                                            [series]="chartOptionsSeriumSodium.series"
+                                            [chart]="chartOptionsSeriumSodium.chart"
+                                            [xaxis]="chartOptionsSeriumSodium.xaxis"
+                                            
+                                            
+                                            
+                                        ></apx-chart>
+                                    </div>
+                                </div>
+                                <div style="text-align:center" *ngIf="isgridseven">
+                                    <div *ngIf="isdailySeriumSodiumshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    <th *ngIf="isDailyhourSeriumSodium">DATE</th>
+                                                    <th *ngFor="let dd of datelist" (click)="dailyclickSeriumSodium(dd)">{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td *ngIf="isDailyhourSeriumSodium">SCORE</td>
+                                                <td *ngFor="let dt of dailyhourSeriumSodium">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="ishourlySeriumSodiumshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of hourlySeriumSodiumlabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of hourlySeriumSodiumscore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="isdeltaSeriumSodiumshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of deltaSeriumSodiumlabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of deltaSeriumSodiumscore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div style="text-align:center" *ngIf="isSplitdateShownSeriumSodium">
+                                    
+                                    <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                        <thead>
+                                            <tr>
+                                                <th>SCORE</th>
+                                                <th>CREATININE</th>
+                                                <th>URINE_OUTPUT</th>
+                                                <th>READTIME</th>
+                                                <th>READBY</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let tmp of detailedSeriumSodium">
+                                            <td>{{tmp.SCORE}}</td>
+                                            <td>{{tmp.CREATININE}}</td>
+                                            <td>{{tmp.URINE_OUTPUT}}</td>
+                                            <td>{{tmp.READTIME}}</td>
+                                            <td>{{tmp.READBY}}</td>
+                                            
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingOne7">
+                    <section class="mb-0 mt-0">
+                        <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionSeven" aria-expanded="true" aria-controls="defaultAccordionSeven">
+                            <div class="icons">
+                            <div class="row" >
+                                <div class="col-md-4" style="text-align: left;">
+                                    <span>Creatinine</span>
+                                </div>
+                                <div class="col-md-1" style="text-align: left;" (click)="SeriumSodiumdataclick()">
+                                    <span>{{this.SeriumSodiumValue}}</span>
+                                </div>
+                                <div class="col-md-2" style="text-align: left;">
+                                    <span>{{this.SeriumSodiumPoint}}</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <span>{{this.SeriumSodiumPer}}</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <img src="../../../assets/images/coagulation.jpg" width="65" height="45" />
+                                </div>
+                                <div class="col-md-2" style="text-align: right;" (click)="SeriumSodiumclick()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                            </div>    
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div id="defaultAccordionSeven" class="collapse" aria-labelledby="headingSeven1" data-parent="#toggleAccordion">
+                    <div class="card-body">
+                        <div class="row moveup" *ngIf="isdropdownclickseven" >
+                            <div class="col-md-3">
+
+                            </div>
+                            <div class="col-md-9">
+                                <div class="n-chk" >
+                                    <label class="new-control new-radio radio-classic-primary">
+                                    <input type="radio" class="new-control-input" name="graph" value="grid" checked (change)="gridClick7($event)">
+                                    <span class="new-control-indicator"></span>Grid 
+                                    
+                                    
+                                    </label>
+                                    <label class="new-control new-radio radio-classic-primary">
+                                    <input type="radio" class="new-control-input" name="graph" value="graph" (change)="gridClick7($event)">
+                                    <span class="new-control-indicator"></span>Graph 
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button class="btn btn-outline-primary mb-2" (click)="SeriumSodiumdailyscorebutton()">DAILY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="SeriumSodiumhourlycorebutton()">HOURLY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="SeriumSodiumdeltascorebutton()">DELTA SCORE</button>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="widget widget-chart-one" *ngIf="isgraphseven">
+                                    <div style="text-align:center">
+                                        <apx-chart
+                                            [series]="chartOptionsSeriumSodium.series"
+                                            [chart]="chartOptionsSeriumSodium.chart"
+                                            [xaxis]="chartOptionsSeriumSodium.xaxis"
+                                            
+                                            
+                                            
+                                        ></apx-chart>
+                                    </div>
+                                </div>
+                                <div style="text-align:center" *ngIf="isgridseven">
+                                    <div *ngIf="isdailySeriumSodiumshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    <th *ngIf="isDailyhourSeriumSodium">DATE</th>
+                                                    <th *ngFor="let dd of datelist" (click)="dailyclickSeriumSodium(dd)">{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td *ngIf="isDailyhourSeriumSodium">SCORE</td>
+                                                <td *ngFor="let dt of dailyhourSeriumSodium">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="ishourlySeriumSodiumshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of hourlySeriumSodiumlabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of hourlySeriumSodiumscore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="isdeltaSeriumSodiumshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of deltaSeriumSodiumlabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of deltaSeriumSodiumscore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div style="text-align:center" *ngIf="isSplitdateShownSeriumSodium">
+                                    
+                                    <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                        <thead>
+                                            <tr>
+                                                <th>SCORE</th>
+                                                <th>CREATININE</th>
+                                                <th>URINE_OUTPUT</th>
+                                                <th>READTIME</th>
+                                                <th>READBY</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let tmp of detailedSeriumSodium">
+                                            <td>{{tmp.SCORE}}</td>
+                                            <td>{{tmp.CREATININE}}</td>
+                                            <td>{{tmp.URINE_OUTPUT}}</td>
+                                            <td>{{tmp.READTIME}}</td>
+                                            <td>{{tmp.READBY}}</td>
+                                            
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingOne7">
+                    <section class="mb-0 mt-0">
+                        <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionSeven" aria-expanded="true" aria-controls="defaultAccordionSeven">
+                            <div class="icons">
+                            <div class="row" >
+                                <div class="col-md-4" style="text-align: left;">
+                                    <span>Hematocrit</span>
+                                </div>
+                                <div class="col-md-1" style="text-align: left;" (click)="SeriumSodiumdataclick()">
+                                    <span>{{this.SeriumSodiumValue}}</span>
+                                </div>
+                                <div class="col-md-2" style="text-align: left;">
+                                    <span>{{this.SeriumSodiumPoint}}</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <span>{{this.SeriumSodiumPer}}</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <img src="../../../assets/images/coagulation.jpg" width="65" height="45" />
+                                </div>
+                                <div class="col-md-2" style="text-align: right;" (click)="SeriumSodiumclick()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                            </div>    
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div id="defaultAccordionSeven" class="collapse" aria-labelledby="headingSeven1" data-parent="#toggleAccordion">
+                    <div class="card-body">
+                        <div class="row moveup" *ngIf="isdropdownclickseven" >
+                            <div class="col-md-3">
+
+                            </div>
+                            <div class="col-md-9">
+                                <div class="n-chk" >
+                                    <label class="new-control new-radio radio-classic-primary">
+                                    <input type="radio" class="new-control-input" name="graph" value="grid" checked (change)="gridClick7($event)">
+                                    <span class="new-control-indicator"></span>Grid 
+                                    
+                                    
+                                    </label>
+                                    <label class="new-control new-radio radio-classic-primary">
+                                    <input type="radio" class="new-control-input" name="graph" value="graph" (change)="gridClick7($event)">
+                                    <span class="new-control-indicator"></span>Graph 
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button class="btn btn-outline-primary mb-2" (click)="SeriumSodiumdailyscorebutton()">DAILY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="SeriumSodiumhourlycorebutton()">HOURLY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="SeriumSodiumdeltascorebutton()">DELTA SCORE</button>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="widget widget-chart-one" *ngIf="isgraphseven">
+                                    <div style="text-align:center">
+                                        <apx-chart
+                                            [series]="chartOptionsSeriumSodium.series"
+                                            [chart]="chartOptionsSeriumSodium.chart"
+                                            [xaxis]="chartOptionsSeriumSodium.xaxis"
+                                            
+                                            
+                                            
+                                        ></apx-chart>
+                                    </div>
+                                </div>
+                                <div style="text-align:center" *ngIf="isgridseven">
+                                    <div *ngIf="isdailySeriumSodiumshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    <th *ngIf="isDailyhourSeriumSodium">DATE</th>
+                                                    <th *ngFor="let dd of datelist" (click)="dailyclickSeriumSodium(dd)">{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td *ngIf="isDailyhourSeriumSodium">SCORE</td>
+                                                <td *ngFor="let dt of dailyhourSeriumSodium">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="ishourlySeriumSodiumshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of hourlySeriumSodiumlabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of hourlySeriumSodiumscore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="isdeltaSeriumSodiumshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of deltaSeriumSodiumlabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of deltaSeriumSodiumscore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div style="text-align:center" *ngIf="isSplitdateShownSeriumSodium">
+                                    
+                                    <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                        <thead>
+                                            <tr>
+                                                <th>SCORE</th>
+                                                <th>CREATININE</th>
+                                                <th>URINE_OUTPUT</th>
+                                                <th>READTIME</th>
+                                                <th>READBY</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let tmp of detailedSeriumSodium">
+                                            <td>{{tmp.SCORE}}</td>
+                                            <td>{{tmp.CREATININE}}</td>
+                                            <td>{{tmp.URINE_OUTPUT}}</td>
+                                            <td>{{tmp.READTIME}}</td>
+                                            <td>{{tmp.READBY}}</td>
+                                            
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingOne7">
+                    <section class="mb-0 mt-0">
+                        <div role="menu" class="collapsed" data-toggle="collapse" data-target="#defaultAccordionSeven" aria-expanded="true" aria-controls="defaultAccordionSeven">
+                            <div class="icons">
+                            <div class="row" >
+                                <div class="col-md-4" style="text-align: left;">
+                                    <span>WBC</span>
+                                </div>
+                                <div class="col-md-1" style="text-align: left;" (click)="SeriumSodiumdataclick()">
+                                    <span>{{this.SeriumSodiumValue}}</span>
+                                </div>
+                                <div class="col-md-2" style="text-align: left;">
+                                    <span>{{this.SeriumSodiumPoint}}</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <span>{{this.SeriumSodiumPer}}</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <img src="../../../assets/images/coagulation.jpg" width="65" height="45" />
+                                </div>
+                                <div class="col-md-2" style="text-align: right;" (click)="SeriumSodiumclick()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                            </div>    
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div id="defaultAccordionSeven" class="collapse" aria-labelledby="headingSeven1" data-parent="#toggleAccordion">
+                    <div class="card-body">
+                        <div class="row moveup" *ngIf="isdropdownclickseven" >
+                            <div class="col-md-3">
+
+                            </div>
+                            <div class="col-md-9">
+                                <div class="n-chk" >
+                                    <label class="new-control new-radio radio-classic-primary">
+                                    <input type="radio" class="new-control-input" name="graph" value="grid" checked (change)="gridClick7($event)">
+                                    <span class="new-control-indicator"></span>Grid 
+                                    
+                                    
+                                    </label>
+                                    <label class="new-control new-radio radio-classic-primary">
+                                    <input type="radio" class="new-control-input" name="graph" value="graph" (change)="gridClick7($event)">
+                                    <span class="new-control-indicator"></span>Graph 
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button class="btn btn-outline-primary mb-2" (click)="SeriumSodiumdailyscorebutton()">DAILY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="SeriumSodiumhourlycorebutton()">HOURLY SCORE</button>
+                                <button class="btn btn-outline-primary mb-2" (click)="SeriumSodiumdeltascorebutton()">DELTA SCORE</button>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="widget widget-chart-one" *ngIf="isgraphseven">
+                                    <div style="text-align:center">
+                                        <apx-chart
+                                            [series]="chartOptionsSeriumSodium.series"
+                                            [chart]="chartOptionsSeriumSodium.chart"
+                                            [xaxis]="chartOptionsSeriumSodium.xaxis"
+                                            
+                                            
+                                            
+                                        ></apx-chart>
+                                    </div>
+                                </div>
+                                <div style="text-align:center" *ngIf="isgridseven">
+                                    <div *ngIf="isdailySeriumSodiumshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    <th *ngIf="isDailyhourSeriumSodium">DATE</th>
+                                                    <th *ngFor="let dd of datelist" (click)="dailyclickSeriumSodium(dd)">{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td *ngIf="isDailyhourSeriumSodium">SCORE</td>
+                                                <td *ngFor="let dt of dailyhourSeriumSodium">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="ishourlySeriumSodiumshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of hourlySeriumSodiumlabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of hourlySeriumSodiumscore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div *ngIf="isdeltaSeriumSodiumshown">
+                                        <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th *ngFor="let dd of deltaSeriumSodiumlabel" >{{dd}}</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                
+                                                <td *ngFor="let dt of deltaSeriumSodiumscore">{{dt}}</td>
+                                                
+                                            </tr>
+                                            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div style="text-align:center" *ngIf="isSplitdateShownSeriumSodium">
+                                    
+                                    <table class="prescriptiontable table table-bordered" style="color: whitesmoke;">
+                                        <thead>
+                                            <tr>
+                                                <th>SCORE</th>
+                                                <th>CREATININE</th>
+                                                <th>URINE_OUTPUT</th>
+                                                <th>READTIME</th>
+                                                <th>READBY</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let tmp of detailedSeriumSodium">
+                                            <td>{{tmp.SCORE}}</td>
+                                            <td>{{tmp.CREATININE}}</td>
+                                            <td>{{tmp.URINE_OUTPUT}}</td>
+                                            <td>{{tmp.READTIME}}</td>
+                                            <td>{{tmp.READBY}}</td>
+                                            
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+      
+</div>
+

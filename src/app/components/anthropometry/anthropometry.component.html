@@ -1,0 +1,196 @@
+<button class="close buttoncolor"  mat-button (click)="onNoClick()">X</button>
+<div class="container custommodal">
+    <mat-toolbar class="toolbarcolor" style="padding-left: 5%;">
+        <button class="btn btn-outline-primary mb-2" (click)="IBWClick()" >IBW</button>
+        <button class="btn btn-outline-primary mb-2" (click)="ABWClick()" >ABW</button>
+        <label style="padding-left: 35%;">ANTHROPOMETRY</label>
+    </mat-toolbar>
+    
+    
+    <div class="innercontainer" style="margin-top: 10px;">
+        <div class="row textcolorvalue" style="margin-left: 4%;">
+            
+            <div class="col-md-4">
+                <label>MRNO:</label><span>{{this.MRNO}}</span>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-5">
+                <label>NAME:</label><span>{{this.NAME}}</span>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+        </div>
+        <div class="row moveup textcolorvalue" style="margin-left: 4%;">
+            
+            <div class="col-md-4">
+                <label>BEDNO:</label><span>{{this.BEDNO}}</span>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-5">
+                <label>AGE:</label><span>{{this.AGE}}</span>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+        </div>
+        <div *ngIf="isIBW">
+            <form class="text-center border border-light p-5">
+
+                <div class="row" style="text-align: left;">
+
+                    <div class="col-xl-6">
+                        <mat-label class="labelclass" >GENDER </mat-label>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="input-group input-group-sm mb-4">
+                            
+                            <input type="text" [(ngModel)] = "GENDERDATA" [ngModelOptions]="{standalone: true}"  class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                </div>
+                <div class="row moveup">
+                    <div class="col-xl-6">
+                        <mat-label class="labelclass" >HEIGHT </mat-label>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="input-group input-group-sm mb-4">
+                            
+                            <input type="text" [(ngModel)] = "Height" [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+
+                    </div>
+                </div>
+                <!-- <div class="row moveup">
+                    <div class="col-xl-6">
+                        <mat-label class="labelclass" >IDEAL BODY WEIGHT </mat-label>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="input-group input-group-sm mb-4">
+                            
+                            <input type="text" placeholder="Enter text"  class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                </div>
+                <div class="row moveup">
+                    <div class="col-xl-6">
+                        <mat-label class="labelclass" >BODY MASS INDEX </mat-label>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="input-group input-group-sm mb-4">
+                            
+                            <input type="text" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                </div> -->
+                
+                
+            
+                
+                <div style="text-align: center;">
+                    <button mat-button (click)="onSubmit()" class="btn btn-outline-primary mb-2">Submit</button>
+                </div>
+        
+            </form>
+        </div>
+
+        <div *ngIf="isABW" style="margin-top: 15px; margin-bottom: 25px;">
+            <div class="row" style="margin-left: 1%;">
+                <div class="col-md-2">
+
+
+                </div>
+                <div class="col-md-2">
+                    <label>POINT1</label>
+                </div>
+                <div class="col-md-2">
+                    <label>POINT2</label>
+                </div>
+                <div class="col-md-2">
+                    <label>POINT3</label>
+                </div>
+                <div class="col-md-2">
+                    <label>POINT4</label>
+                </div>
+                <div class="col-md-2">
+
+                </div>
+            </div>
+            <div class="row" style="margin-left: 1%;">
+                <div class="col-md-2">
+                    <label>BED WEIGHT</label>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm mb-4">
+                            
+                        <input type="text" (change)="bedonechange()" [(ngModel)]="this.bedPointone"   [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm mb-4">
+                            
+                        <input type="text" (change)="bedtwochange()" [(ngModel)]="this.bedPointtwo"   [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm mb-4">
+                            
+                        <input type="text" (change)="bedthreechange()" [(ngModel)]="this.bedPointthree"   [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm mb-4">
+                            
+                        <input type="text" (change)="bedfourchange()" [(ngModel)]="this.bedPointfour"   [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label>{{totalbedPoint}} KG</label>
+                </div>
+            </div>
+            <div class="row" style="margin-left: 1%;">
+                <div class="col-md-2">
+                    <label>PATIENT ABW</label>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm mb-4">
+                            
+                        <input type="text" (change)="abwonechange()"  [(ngModel)]="this.abwPointone"   [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm mb-4">
+                            
+                        <input type="text" (change)="abwtwochange()" [(ngModel)]="this.abwPointtwo"   [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm mb-4">
+                            
+                        <input type="text" (change)="abwthreechange()" [(ngModel)]="this.abwPointthree"   [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm mb-4">
+                            
+                        <input type="text" (change)="abwfourchange()" [(ngModel)]="this.abwPointfour"   [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label>{{totalabwpoint}} KG</label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+      
+</div>
+
+

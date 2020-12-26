@@ -1,0 +1,280 @@
+<!-- <button class="close buttoncolor" mat-button (click)="onNoClick()">X</button> -->
+<div class="container custommodal">
+    <!-- <mat-toolbar class="toolbarcolor" style="padding-left: 45%;">
+        PRESCRIPTION
+    </mat-toolbar> -->
+    <div class="row toolbarcolor">
+        <div class="col-md-3">
+            <span>ICU Day 1</span>
+        </div>
+        <div class="col-md-5" style="text-align: center;">
+            <h5>PRESCRIPTION</h5>
+        </div>
+        <div class="col-md-4" style="text-align: right;">
+            <svg-icon src="../../../assets/images/write.svg" [stretch]="true" 
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <svg-icon src="../../../assets/images/note.svg" [stretch]="true"  (click)="submitData()"
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <svg-icon src="../../../assets/images/close.svg" [stretch]="true" (click)="onNoClick()"
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <!-- <button class="close buttoncolor" mat-button (click)="onNoClick()">X</button> -->
+        </div>
+    </div>
+    
+    
+    <div class="innercontainer">
+        <form class="text-center border border-light p-5">
+            <div class="row ">
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-label class="labelclass" >FEED VOLUME </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" [(ngModel)] = "this.FEEDVOL" [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-label class="labelclass" >CALORIC DENSITY </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" [(ngModel)] = "this.CALORIEDENSITY" [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-label class="labelclass" >FEED RATE </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" [(ngModel)] = "this.FEEDRATE" [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row" style="margin-top: 20px; margin-bottom: 10px;">
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <mat-label style="font-weight: bold; font-size: 16px;" class="labelclass" >PROTEIN </mat-label>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <mat-label style="font-weight: bold; font-size: 16px;" class="labelclass" >CALORIE </mat-label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    
+                </div>
+                
+            </div>
+
+            <div class="row " style="margin-bottom: 15px;">
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-label class="labelclass" >Ideal Protein </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" [(ngModel)] = "this.IDEALPROTEIN" [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-label class="labelclass" >Ideal Calorie </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" [(ngModel)] = "this.IDEALCAL" [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-label class="labelclass" >Disparity </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" [(ngModel)] = "this.DISPARITY" [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row " style="margin-bottom: 15px;">
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-label class="labelclass" >Target Protein </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" [(ngModel)] = "this.TARGETPROTEIN" [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-label class="labelclass" >Target Calorie </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" [(ngModel)] = "this.TARGETCAL" [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-label class="labelclass" >CHO </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" [(ngModel)] = "this.CHO" [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row " style="margin-bottom: 15px;">
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-label class="labelclass" >Prescribed Protein </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" [(ngModel)] = "this.PRESCRIBEDPROTEIN" [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-label class="labelclass" >Prescribed Calorie </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" [(ngModel)] = "this.PRESCRIBEDCALORIE" [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-label class="labelclass" >FAT </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" [(ngModel)] = "this.FAT" [ngModelOptions]="{standalone: true}" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row" style="text-align: right;">
+                <div class="col-md-4">
+                    <div class="n-chk">
+                        <label class="new-control new-checkbox checkbox-primary">
+                            <input type="checkbox" class="new-control-input">
+                            <span class="new-control-indicator"></span>FEED HOLD 
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="n-chk">
+                        <label class="new-control new-checkbox checkbox-primary">
+                            <input type="checkbox" class="new-control-input">
+                            <span class="new-control-indicator"></span>FEED RESTART 
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="n-chk">
+                        <label class="new-control new-checkbox checkbox-primary">
+                            <input type="checkbox" class="new-control-input">
+                            <span class="new-control-indicator"></span>DISCHARGE
+                        </label>
+                    </div>
+                </div>
+                
+                    
+                
+            </div>
+            
+      
+        </form>
+    </div>
+    
+      
+</div>

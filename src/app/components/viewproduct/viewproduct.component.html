@@ -1,0 +1,57 @@
+<button class="close buttoncolor" mat-button (click)="onNoClick()">X</button>
+<div class="container custommodal">
+    <mat-toolbar class="toolbarcolor" style="padding-left: 45%;">
+        PRODUCTS LIST
+    </mat-toolbar>
+    <div class="row" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12 ">
+            <div class="widget-content widget-content-area br-6">
+                <div class="table-responsive mb-4 mt-4">
+                    
+
+                    <table id="zero-config" class="table table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Code</th>
+                                <th>Quantity</th>
+                                <th>Calorie</th>
+                                <th>Protein</th>
+                                <th>Carbohydrate</th>
+                                <th>Fat</th>
+                                <th>Sodium</th>
+                                <th class="no-content"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="let pro of this.service.productList">
+                                <td>{{pro.Product}}</td>
+                                <td>{{pro.Code}}</td>
+                                <td>{{pro.Quantity}}</td>
+                                <td>{{pro.Calorie}}</td>
+                                <td>{{pro.Protein}}</td>
+                                <td>{{pro.Carbohydrate}}</td>
+                                <td>{{pro.Fat}}</td>
+                                <td>{{pro.Sodium}}</td>
+                                <td>
+                                    <svg-icon src="../../../assets/images/edit.svg" [stretch]="true" (click)="edit(pro.Productid)"
+                                        [svgStyle]="{'width.px':20,'height.px':20,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+                                    </svg-icon>
+                                    <svg-icon src="../../../assets/images/close.svg" [stretch]="true" (click)="delete(pro.Productid)"
+                                        [svgStyle]="{'width.px':20,'height.px':20,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+                                    </svg-icon>
+                                    
+                                </td>
+                           </tr> 
+                           
+                        </tbody>
+                    
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

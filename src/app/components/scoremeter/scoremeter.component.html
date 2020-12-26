@@ -1,0 +1,10 @@
+<div class="wrap-meter">
+    <div id="activeBorder" class="active-border {{shadowAlert}}" [ngStyle]="{'background-image':'linear-gradient(' + (calcDeg) + 'deg, transparent 49%, '+switchColor+' 50%),linear-gradient(90deg, #191e3a 50%, transparent 50%)','background-color':switchRiskColor}">
+        <div id="circle" class="circle"></div>
+        <div class="label-square"></div>
+    </div>
+    <span class="prec">{{percentage}}</span>
+    <div class="wrap-needle" [ngStyle]="{'transform': 'rotate('+ needleMove +'deg)'}">
+        <span class="needle" [ngStyle]="{'border-top': '55px solid '+switchRiskColor}"></span>
+    </div>
+</div>

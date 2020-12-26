@@ -1,0 +1,172 @@
+<div class="topmodal">
+<button class="close buttoncolor" mat-button (click)="onNoClick()">X</button><br/>
+<div class="container custommodal">
+    <div class="row" style="padding-left: 40%;">
+        <div class="col-md-6">
+            <span style="color: white;">CHOOSE PRODUCT </span>
+            <select class="selectpicker" data-style="custom-styling btn btn-outline-primary" (change)="onChange($event)">
+                <option *ngFor="let item of this.service.calculatorProductlist" value= {{item.Productid}}>
+                    {{item.Product}}
+                  </option>
+            </select>
+        </div>
+    </div>
+    <br/>
+    <div class="row" style="padding-left: 40%;">
+        <h6>PRODUCT SPECIFICATION</h6>
+    </div>
+    <div class="row" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  ">
+            
+                <div class="table-responsive table-bordered">
+                    <table id="example" class="table table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Code</th>
+                                <th>Quantity</th>
+                                <th>KCL</th>
+                                <th>PRT</th>
+                                <th>CHO</th>
+                                <th>FAT</th>
+                                <th>NA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{this.ProductdataFirstrow.Product}}</td>
+                                <td>{{this.ProductdataFirstrow.Code}}</td>
+                                <td>{{this.ProductdataFirstrow.Quantity}}</td>
+                                <td>{{this.ProductdataFirstrow.Calorie}}</td>
+                                <td>{{this.ProductdataFirstrow.Protein}}</td>
+                                <td>{{this.ProductdataFirstrow.Carbohydrate}}</td>
+                                <td>{{this.ProductdataFirstrow.Fat}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+        </div>
+    </div>
+    <div class="row" style="padding-left: 45%;">
+        <h6>CALCULATOR</h6>
+    </div>
+    <div class="row" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12">
+            
+                <div class="table-responsive">
+                    <table id="example" class="table table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Code</th>
+                                <th>Quantity</th>
+                                <th>Calorie</th>
+                                <th>Protein</th>
+                                <th>Carbohydrate</th>
+                                <th>Fat</th>
+                                <th>NA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{this.Productdata.Product}}</td>
+                                <td>{{this.Productdata.Code}}</td>
+                                <td><input type="text" id="row-1-age" [(ngModel)]="this.Quantity" (change)="onLeaveEvent()"  name="row-1-age" value="0"></td>
+                                <td>{{this.Productdata.Calorie}}</td>
+                                <td>{{this.Productdata.Protein}}</td>
+                                <td>{{this.Productdata.Carbohydrate}}</td>
+                                <td>{{this.Productdata.Fat}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+        </div>
+    </div>
+
+    <div class="row" style="padding-left: 40%;">
+        <h6>FEED ANALYSIS</h6>
+    </div>
+    <div class="row" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12">
+            
+                <div class="table-responsive table-bordered ">
+                    <table id="example" class="table table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Code</th>
+                                <th>Quantity</th>
+                                <th>Calorie</th>
+                                <th>Protein</th>
+                                <th>Carbohydrate</th>
+                                <th>Fat</th>
+                                
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let pro of this.Productarray">
+                                <td>{{pro.Product}}</td>
+                                <td>{{pro.Code}}</td>
+                                <td>{{pro.Quantity}}</td>
+                                <td>{{pro.Calorie}}</td>
+                                <td>{{pro.Protein}}</td>
+                                <td>{{pro.Carbohydrate}}</td>
+                                <td>{{pro.Fat}}</td>
+                                <td (click)="plusclicked(pro)"><button class="btn btn-small btn-primary">+</button></td>
+                                <td (click)="minusclicked(pro)"><button class="btn btn-small btn-primary">-</button></td>
+                                <td (click)="crossclicked(pro)"><button class="btn btn-small btn-primary">x</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+        </div>
+    </div>
+
+    <div class="row" style="padding-left: 45%;">
+        <h6>TOTAL</h6>
+    </div>
+    <div class="row" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12">
+            
+                <div class="table-responsive">
+                    <table id="example" class="table table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                
+                                
+                                
+                                <th>Calorie</th>
+                                <th>Protein</th>
+                                <th>Carbohydrate</th>
+                                <th>Fat</th>
+                                <th>NA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                
+                                
+                                
+                                <td>{{this.sumcalorie}}</td>
+                                <td>{{this.sumprotein}}</td>
+                                <td>{{this.sumcarbohydrate}}</td>
+                                <td>{{this.sumfat}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+        </div>
+    </div>
+
+</div>
+</div>
