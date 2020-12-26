@@ -1,0 +1,132 @@
+<!-- <button class="close buttoncolor" mat-button (click)="onNoClick()">X</button> -->
+<div class="container custommodal">
+    <!-- <mat-toolbar class="toolbarcolor" style="padding-left: 45%;">
+        SOFA SCORE
+    </mat-toolbar> -->
+    <div class="row toolbarcolor">
+        <div class="col-md-6">
+            
+        </div>
+        <div class="col-md-3" style="text-align: center;">
+            <h5>Appache Entry</h5>
+        </div>
+
+        <div class="col-md-3" style="text-align: right;">
+            
+            <svg-icon src="../../../assets/images/note.svg" [stretch]="true"  (click)="submitdata()"
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <svg-icon src="../../../assets/images/close.svg" [stretch]="true" (click)="onNoClick()"
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <!-- <button class="close buttoncolor" mat-button (click)="onNoClick()">X</button> -->
+        </div>
+    </div>
+    
+    
+    <div class="innercontainer">
+        <form class="text-center border border-light p-5">
+            
+            <div class="row" style="text-align: left;">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >Mean Arterial Rate </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" [(ngModel)]="this.MeanArterialRateValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row moveup" style="text-align: left;">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >Temperature </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" [(ngModel)]="this.TemperatureValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row moveup" style="text-align: left;">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >Heart Rate </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" [(ngModel)]="this.HeartRateValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row moveup" style="text-align: left;">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >Respiratory Rate </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" [(ngModel)]="this.RespiratoryRateValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row moveup" style="text-align: left;">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >Arterial Rate </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" [(ngModel)]="this.ArterialRateValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row moveup" style="text-align: left;">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >Potassium </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" [(ngModel)]="this.PotassiumValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row moveup" style="text-align: left;">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >Serium Sodium </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" [(ngModel)]="this.SeriumSodiumValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+
+            
+            
+            
+            
+      
+        </form>
+    </div>
+    
+      
+</div>
+
+

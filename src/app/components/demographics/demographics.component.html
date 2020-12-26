@@ -1,0 +1,306 @@
+<!-- <button class="close buttoncolor" mat-button (click)="onNoClick()">X</button> -->
+<div class="container custommodal">
+    <!-- <mat-toolbar class="toolbarcolor" style="padding-left: 40%;">
+        PATIENT DEMOGRAPHICS
+    </mat-toolbar> -->
+    
+    <div class="row toolbarcolor">
+        <div class="col-md-3">
+            
+        </div>
+        <div class="col-md-5" style="text-align: center;">
+            <h5>Patient Demographics</h5>
+        </div>
+        <div class="col-md-4" style="text-align: right;">
+
+            <svg-icon src="../../../assets/images/write.svg" [stretch]="true"  (click)="onEditClick()"
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <svg-icon src="../../../assets/images/note.svg" [stretch]="true" (click)="onSubmit(form)"
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <svg-icon src="../../../assets/images/close.svg" [stretch]="true" (click)="onNoClick()"
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <!-- <button class="close buttoncolor" mat-button (click)="onNoClick()">X</button> -->
+        </div>
+    </div>
+    
+    <div class="innercontainer">
+        <form #form="ngForm" (submit)="onSubmit(form)" class="text-center border border-light p-5">
+            <input type="hidden" name="MRNO" #MRNO="ngModel" [(ngModel)] = "service.formDataDemographics.MRNO" />
+            <div class="row" style="margin-bottom: 5%;">
+                <div class="col-md-6">
+                    
+                        <!-- <mat-label class="labelclass" >MRNO </mat-label> -->
+                    
+                    <div class="input-group input-group-sm ">
+
+                        <div class="n-chk" >
+                            <label class="new-control new-radio radio-classic-primary">
+                              <input type="radio" class="new-control-input" name="graph" value="text" checked (change)="pickMRNO($event)">
+                              <span class="new-control-indicator"></span>Enter MRNO 
+                              
+                              
+                            </label>
+                            <label class="new-control new-radio radio-classic-primary">
+                            <input type="radio" class="new-control-input" name="graph" value="select" (change)="pickMRNO($event)">
+                              <span class="new-control-indicator"></span>Choose Existing MRNO 
+                            </label>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                    <br />
+                        <!-- <span style="color: white; margin-right: 3px; margin-top: 5px;">MRNO</span> -->
+                        <input type="text" placeholder="Enter MRNO" *ngIf="isPickedText" style="width: 100px; height: 28px;"
+                        name="MRNO" #MRNO="ngModel" [(ngModel)]="service.formDataDemographics.MRNO" placeholder="Enter MRNO"
+                        class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+
+                        <select class="form-control  basic selectclass" *ngIf="isPickedSelect" data-style="custom-styling btn btn-outline-primary" (change)="onChange($event)">
+                            <option *ngFor="let item of items" value= {{item}}>
+                                {{item}}
+                              </option>
+                        </select>
+                    
+                    
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field style="border-radius: 5px;  background-color: #191E3A; height: 35px; ">
+                        
+
+                        <input placeholder="Choose Date" style="color: whitesmoke;"
+                        name="entrydate" #entrydate="ngModel" [(ngModel)]="service.formDataDemographics.entrydate"
+                        
+                        matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle style="color: whitesmoke;  "  matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-group input-group-sm ">
+                        
+                        <input type="text" placeholder="Enter Name" class="form-control" aria-label="Small"
+                        name="Firstname" #Firstname="ngModel" [(ngModel)]="service.formDataDemographics.Firstname"
+                        aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row moveup">
+                <div class="col-xl-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-label class="labelclass" >BedNo </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" placeholder="Enter text" class="form-control" aria-label="Small"
+                                name="BedNo" #BedNo="ngModel" [(ngModel)]="service.formDataDemographics.BedNo"
+                                aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-xl-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-label class="labelclass" >Age </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" placeholder="Enter text" class="form-control" aria-label="Small"
+                                name="Age" #Age="ngModel" [(ngModel)]="service.formDataDemographics.Age"
+                                aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row moveup">
+                <div class="col-xl-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-label class="labelclass" >Gender </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" placeholder="Enter text" class="form-control" aria-label="Small"
+                                name="Gender" #Gender="ngModel" [(ngModel)]="service.formDataDemographics.Gender"
+                                aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-xl-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-label class="labelclass" >DOA(H) </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field style="border-radius: 5px; background-color: #191E3A; height: 35px;  ">
+                        
+
+                                <input placeholder="Choose Date" style="color: whitesmoke;"
+                                name="doah" #doah="ngModel" [(ngModel)]="service.formDataDemographics.doah"
+                                matInput [matDatepicker]="picker1">
+                                <mat-datepicker-toggle style="color: whitesmoke;  "  matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                              </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row moveup">
+                <div class="col-xl-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-label class="labelclass" >DOA(ICU) </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field style="border-radius: 5px; background-color: #191E3A; height: 35px;  ">
+                        
+
+                                <input placeholder="Choose Date" style="color: whitesmoke;"
+                                name="doaicu" #doaicu="ngModel" [(ngModel)]="service.formDataDemographics.doaicu"
+                                matInput [matDatepicker]="picker2">
+                                <mat-datepicker-toggle style="color: whitesmoke;  "  matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2></mat-datepicker>
+                              </mat-form-field>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-xl-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-label class="labelclass" >DIAGNOSIS </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" placeholder="Enter text" class="form-control" aria-label="Small" 
+                                name="diagnosis" #diagnosis="ngModel" [(ngModel)]="service.formDataDemographics.diagnosis"
+                                aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row moveup">
+                <div class="col-xl-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-label class="labelclass" >LOCATION </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" placeholder="Enter text" class="form-control" aria-label="Small"
+                                name="location" #location="ngModel" [(ngModel)]="service.formDataDemographics.location"
+                                aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-xl-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-label class="labelclass" >ICUDAY </mat-label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm ">
+                        
+                                <input type="text" placeholder="Enter text" class="form-control" aria-label="Small"
+                                name="icuday" #icuday="ngModel" [(ngModel)]="service.formDataDemographics.icuday"
+                                aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+            <!-- <div style="margin-bottom: 1%;">
+                <mat-label class="labelclass" style="margin-right: 240px;">BEDNO : </mat-label>
+                <input matInput type="text" placeholder="Enter text">
+                
+            </div>
+            <div style="margin-bottom: 1%;">
+                <mat-label class="labelclass" style="margin-right: 246px;">MRNO : </mat-label>
+                <input matInput type="text" placeholder="Enter text">
+                
+            </div>
+            <div style="margin-bottom: 1%;">
+                <mat-label class="labelclass" style="margin-right: 246px;">NAME : </mat-label>
+                <input matInput type="text" placeholder="Enter text">
+                
+            </div>
+            <div style="margin-bottom: 1%;">
+                <mat-label class="labelclass" style="margin-right: 200px;">ENTRY DATE : </mat-label>
+                <input matInput type="text" placeholder="Enter text">
+                
+            </div>
+            <div style="margin-bottom: 1%;">
+                <mat-label class="labelclass" style="margin-right: 260px;">AGE : </mat-label>
+                <input matInput type="text" placeholder="Enter text">
+                
+            </div>
+            <div style="margin-bottom: 1%;">
+                <mat-label class="labelclass" style="margin-right: 230px;">GENDER : </mat-label>
+                <input matInput type="text" placeholder="Enter text">
+                
+            </div>
+            <div style="margin-bottom: 1%;">
+                <mat-label class="labelclass" style="margin-right: 236px;">DOA(H) : </mat-label>
+                <input matInput type="text" placeholder="Enter text">
+                
+            </div>
+            <div style="margin-bottom: 1%;">
+                <mat-label class="labelclass" style="margin-right: 222px;">DOA(ICU) : </mat-label>
+                <input matInput type="text" placeholder="Enter text">
+
+                
+            </div>
+            <div style="margin-bottom: 1%;">
+                <mat-label class="labelclass" style="margin-right: 208px;">DIAGNOSIS : </mat-label>
+                <input matInput type="text" placeholder="Enter text">
+                
+            </div>
+            <div style="margin-bottom: 1%;">
+                <mat-label class="labelclass" style="margin-right: 215px;">LOCATION : </mat-label>
+                <input matInput type="text" placeholder="Enter text">
+                
+            </div>
+            <div style="margin-bottom: 1%;">
+                <mat-label class="labelclass" style="margin-right: 234px;">ICUDAY : </mat-label>
+                <input matInput type="text" placeholder="1">
+                
+            </div>
+            <div style="text-align: center;">
+                <button mat-button class="btn btn-outline-primary mb-2">Submit</button>
+            </div> -->
+      
+        </form>
+    </div>
+    
+      
+</div>

@@ -1,0 +1,207 @@
+<!-- <button class="close buttoncolor" mat-button (click)="onNoClick()">X</button> -->
+<div class="container custommodal">
+        <!-- <mat-toolbar class="toolbarcolor" style="padding-left: 45%;">
+            SOFA SCORE
+        </mat-toolbar> -->
+        <div class="row toolbarcolor">
+            <div class="col-md-6">
+                
+            </div>
+            <div class="col-md-3" style="text-align: center;">
+                <h5>New Entry</h5>
+            </div>
+
+            <div class="col-md-3" style="text-align: right;">
+                
+                <svg-icon src="../../../assets/images/note.svg" [stretch]="true"  (click)="submitdata()"
+                    [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+                </svg-icon>
+                <svg-icon src="../../../assets/images/close.svg" [stretch]="true" (click)="onNoClick()"
+                    [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+                </svg-icon>
+                <!-- <button class="close buttoncolor" mat-button (click)="onNoClick()">X</button> -->
+            </div>
+        </div>
+        
+        
+        <div class="innercontainer">
+            <form class="text-center border border-light p-5">
+                
+                <div class="row" style="text-align: left;">
+                    <div class="col-xl-4">
+                        <mat-label class="labelclass" >RESPIRATORY SYSTEM </mat-label>
+                    </div>
+                    <div class="col-xl-8" style="text-align: left;">
+                        <div class="n-chk" >
+                            <label class="new-control new-radio radio-classic-primary">
+                              <input type="radio" class="new-control-input" name="resp" value="value" checked (change)="respclick($event)">
+                              <span class="new-control-indicator"></span>Enter Value 
+                              
+                              
+                            </label>
+                            <label class="new-control new-radio radio-classic-primary">
+                            <input type="radio" class="new-control-input" name="resp" value="field" (change)="respclick($event)">
+                              <span class="new-control-indicator"></span>Field values 
+                            </label>
+                        </div>
+                        <div class="input-group input-group-sm mb-4" *ngIf="isrespvalue" style="width: 250px;">
+                            
+                            <input type="text"  [(ngModel)]="this.ResValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            <br />
+                                    <input type="checkbox" value="Is Ventilated" [ngModelOptions]="{standalone: true}" name="IsVentilated" [(ngModel)] = "this.dataventilated" />
+                                    <span style="color: white">Is Ventilated</span>
+                        </div>
+                        <div class="row" *ngIf="isrespfields">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <span style="color: white;">PaO2</span>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" style="height: 25px;" [(ngModel)]="this.pao2"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-md-5">
+                                    <span style="color: white;">FiaO2</span>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" style="height: 25px;" [(ngModel)]="this.fiao2"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row " style="text-align: left;">
+                    <div class="col-xl-4">
+                        <mat-label class="labelclass" >NERVOUS SYSTEM </mat-label>
+                    </div>
+                    <div class="col-xl-8" style="text-align: left;">
+                        <div class="n-chk" >
+                            <label class="new-control new-radio radio-classic-primary">
+                              <input type="radio" class="new-control-input" name="graph" value="value" checked (change)="nervousclick($event)">
+                              <span class="new-control-indicator"></span>Enter Value 
+                              
+                              
+                            </label>
+                            <label class="new-control new-radio radio-classic-primary">
+                            <input type="radio" class="new-control-input" name="graph" value="field" (change)="nervousclick($event)">
+                              <span class="new-control-indicator"></span>Field values 
+                            </label>
+                        </div>
+                        <div class="input-group input-group-sm mb-4" *ngIf="isnervousvalue" style="width: 150px;">
+                            
+                            <input type="text" [(ngModel)]="this.NervValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            
+                        </div>
+                        <div class="row" *ngIf="isnervousfields" style="text-align: left;">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <span style="color: white;">Eye Response</span>
+                                </div>
+                                <div class="col-md-7" style="margin-right: 20px;">
+                                    <select class="form-control  basic selectclass" (change)="eyeresponsechange($event)" >
+                                        <option  value="4">Open Spontaneously</option>
+                                        <option  value="3">Open to Verbal Command</option>
+                                        <option  value="2">Open in Response to Pain</option>
+                                        <option  value="1">No Response</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 8px;">
+                                <div class="col-md-5">
+                                    <span style="color: white;">Verbal Response</span>
+                                </div>
+                                
+                                <div class="col-md-7" style="margin-right: 20px;">
+                                    <select class="form-control  basic selectclass" (change)="verbalresponsechange($event)" >
+                                        <option  value="5">Talking/Orientated</option>
+                                        <option  value="4">Confused Speech / Disorientated</option>
+                                        <option  value="3">Inappropriate Words</option>
+                                        <option  value="2">Incomprehensible Sounds</option>
+                                        <option  value="1">No Response</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 8px;">
+                                <div class="col-md-5">
+                                    <span style="color: white;">Motor Response</span>
+                                </div>
+                                <div class="col-md-7" style="margin-right: 20px;">
+                                    <select class="form-control  basic selectclass" (change)="motorresponsechange($event)" >
+                                        <option  value="6">Obeys Commands</option>
+                                        <option  value="5">Localizes Pain</option>
+                                        <option  value="4">Withdraws from Pain</option>
+                                        <option  value="3">Abnormal flexion</option>
+                                        <option  value="2">Extension</option>
+                                        <option  value="1">No Response</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- <input type="text" [(ngModel)]="this.NervValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"> -->
+                            
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row " style="text-align: left;">
+                    <div class="col-xl-6">
+                        <mat-label class="labelclass" >LIVER </mat-label>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="input-group input-group-sm mb-4">
+                            
+                            <input type="text" [(ngModel)]="this.LiverValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row moveup">
+                    <div class="col-xl-6">
+                        <mat-label class="labelclass" >COAGULATION </mat-label>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="input-group input-group-sm mb-4">
+                            
+                            <input type="text" [(ngModel)]="this.CoagulationValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row moveup">
+                    <div class="col-xl-6">
+                        <mat-label class="labelclass" >KIDNEYS </mat-label>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="input-group input-group-sm mb-4">
+                            
+                            <input type="text" [(ngModel)]="this.KidneyValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row moveup">
+                        <div class="col-xl-6">
+                            <mat-label class="labelclass" >Cardiovascular(MAP) </mat-label>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="input-group input-group-sm mb-4">
+                                
+                                <input type="text" [(ngModel)]="this.CardiovascularValue"  [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                
+                            </div>
+                        </div>
+                    </div>
+                
+                
+                
+          
+            </form>
+        </div>
+        
+          
+    </div>
+    
+    

@@ -1,0 +1,1057 @@
+
+.img1 {
+  bottom: 50%;
+}
+
+.progressBar {
+    width: 50%;
+}
+
+
+.progressBar ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    display: inline-flex;
+    width: 100%;
+}
+
+.progressBar ul li {
+    position: relative;
+}
+
+.progressBar img {
+    width: 100%;
+    z-index: 1006;
+    position: relative;
+    
+}
+
+
+.loader {
+  z-index: 1;
+  position: absolute;
+  width: 200px;
+  height: 250px;
+}
+
+.water {
+  width: 200px;
+  height: 250px;
+  background-color: #068206;
+  /* border-radius: 50%;*/
+  position: relative;
+  /*box-shadow: inset 0 0 30px 0 rgba(0,0,0,.5), 0 4px 10px 0 rgba(0,0,0,.5);*/
+  overflow: hidden;
+}
+
+.before,
+.after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  /* bottom: 35%; */
+  background-color: #068206;
+  transition: 500ms ease all;
+}
+
+.before {
+  border-radius: 55%;
+  background: rgba(0, 2, 15, 1);
+  animation: wave 5s linear infinite;
+}
+
+.after {
+  border-radius: 45%;
+  background: rgba(0, 2, 15, .3);
+  animation: wave 5s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+      transform: rotate(0);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+
+.progressBarInner {
+    position: absolute;
+    bottom: 0px;
+      background-color: #337ab7;  
+      
+    left: 0px;
+    right: 0px;
+    z-index: 0;
+    display: block;
+    height: 0;
+    width: 100%;
+}
+
+/* .progressBarInner {
+    background-color: #e4c465;
+    -webkit-animation: progressBar 3s ease-in-out;
+    -webkit-animation-fill-mode: both;
+    -moz-animation: progressBar 3s ease-in-out;
+    -moz-animation-fill-mode: both;
+} */
+
+/* @-webkit-keyframes progressBar {
+    0% {
+        height: 0px
+    }
+
+    50% {
+        height: 10%
+    }
+} */
+
+
+input[type="text"]:focus:hover{
+    outline: none;
+    box-shadow: 0px 0px 5px #61C5FA;
+    border:1px solid #5AB0DB;
+    border-radius:0;
+    
+}  
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+
+.wrapper {
+
+    width: 250px;
+    height: 250px;
+    display: table;
+    margin: 0 auto;
+    background: #001834;
+    padding: 35px 40px 40px;
+    border-radius: 6px;
+    box-shadow: 0 0 1px 0 rgba(0, 24, 52, 0.32), 0 1px 9px -1px #001834;
+}
+.wrapper-header {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: rgba(255, 255, 255, .74);
+    margin: 30px 0 15px;
+    font-weight: normal;
+}
+.heart {
+    margin: 0 8px;
+    display: inline-block;
+    animation: simplePulse ease-in-out 1.1s infinite;
+}
+
+.speedometer {
+    width: 100px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    transform: rotate(-90deg);
+    top: - 50px;
+  }
+  
+  .speed {
+    
+    text-align: center;
+    color: #000000;
+    
+    font-size: 6em;
+    text-shadow: #73d6ff 0 0 10px;
+    transform: rotate(90deg);
+    transform-origin: 0 0;
+    position: relative;
+    left: 1.3em;
+    padding-left: 50%;
+  }
+  .speed:before {
+    /* content: '32'; */
+    /* content: var(--content-appache); */
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    width: 70%;
+    animation: kmh 6s linear 0s 1 forwards;
+  }
+  .speed span {
+    font-size: 0.3em;
+    display: block;
+  }
+  
+  [class^="speed-marker-"] {
+    height: 200px;
+    opacity: .4;
+  }
+  
+  [class^="speed-marker-"],
+  [class^="speed-marker-"]:after {
+    width: 5px;
+  }
+  
+  [class^="speed-marker-"],
+  [class^="speed-marker-"]:after,
+  [class^="speed-marker-"]:before {
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    margin-left: -2px;
+    transform-origin: top center;
+  }
+  
+  /* [class^="speed-marker-"]:after {
+    content: ' ';
+    height: 30px;
+  } */
+  
+  [class^="speed-marker-"]:not(:first-child):before {
+    content: ' ';
+    height: 30px;
+    width: 6px;
+    margin-left: -15px;
+  }
+  
+  [class^="speed-marker-"]:after,
+  [class^="speed-marker-"]:before {
+    background: #921ae2;
+    box-shadow: 0 0 3px 1.5px #93aeb8;
+  }
+
+  [class^="speed-marker-1Class"] {
+    background-color: #dde6e9;
+    box-shadow: 0 0 10px 5px #f3f6f7;
+    
+  }
+
+  
+  
+  @keyframes toggleMarkers {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes kmh {
+    0% {
+      content: "0";
+    }
+    10% {
+      content: "10";
+    }
+    20% {
+      content: "20";
+    }
+    30% {
+      content: "30";
+    }
+    40% {
+      content: "40";
+    }
+    50% {
+      content: "50";
+    }
+    60% {
+      content: "60";
+    }
+    70% {
+      content: "70";
+    }
+     80% {
+      content: "80";
+    }
+    90% {
+      content: "90";
+    }
+    100% {
+      content: "100";
+    } 
+  }
+  .speed-marker-1 {
+    transform: rotate(-13deg);
+    /* animation: toggleMarkers 500ms linear 6s 1 forwards; */
+  }
+
+  .speed-marker-1Class1{
+    
+    animation: toggleMarkers 500ms linear 6s 1 forwards;
+  }
+
+  .speed-marker-1:before {
+    transform: rotate(2deg);
+  }
+  
+  .speed-marker-2 {
+    transform: rotate(-26deg);
+    /* animation: toggleMarkers 500ms linear 5.5s 1 forwards; */
+  }
+  .speed-marker-1Class2{
+    
+    animation: toggleMarkers 500ms linear 5.5s 1 forwards;
+  }
+
+  /* .speed-marker-2:before {
+    transform: rotate(4deg);
+  } */
+  
+  .speed-marker-3 {
+    transform: rotate(-39deg);
+    /* animation: toggleMarkers 500ms linear 5s 1 forwards; */
+  }
+  
+  .speed-marker-1Class3{
+    
+    animation: toggleMarkers 500ms linear 5s 1 forwards;
+  }
+
+ /*  .speed-marker-3:before {
+    transform: rotate(6deg);
+  }
+   */
+  .speed-marker-4 {
+    transform: rotate(-52deg);
+    /* animation: toggleMarkers 500ms linear 4.5s 1 forwards; */
+  }
+  /* .speed-marker-4:before {
+    transform: rotate(8deg);
+  } */
+
+  .speed-marker-1Class4{
+    
+    animation: toggleMarkers 500ms linear 4.5s 1 forwards;
+  }
+  
+  .speed-marker-5 {
+    transform: rotate(-65deg);
+    /* animation: toggleMarkers 500ms linear 4s 1 forwards; */
+  }
+  .speed-marker-1Class5{
+    
+    animation: toggleMarkers 500ms linear 4s 1 forwards;
+  }
+
+  /* .speed-marker-5:before {
+    transform: rotate(10deg);
+  } */
+  
+  .speed-marker-6 {
+    transform: rotate(-78deg);
+    /* animation: toggleMarkers 500ms linear 3.5s 1 forwards; */
+  }
+  .speed-marker-1Class6{
+    animation: toggleMarkers 500ms linear 3.5s 1 forwards;
+  }
+
+  /* .speed-marker-6:before {
+    transform: rotate(12deg);
+  } */
+  
+  .speed-marker-7 {
+    transform: rotate(-91deg);
+    /* animation: toggleMarkers 500ms linear 3s 1 forwards; */
+  }
+
+  .speed-marker-1Class7{
+    animation: toggleMarkers 500ms linear 3s 1 forwards;
+  }
+  
+   .speed-marker-8 {
+    transform: rotate(-104deg);
+    /* animation: toggleMarkers 500ms linear 2.5s 1 forwards; */
+  } 
+
+  .speed-marker-1Class8{
+    animation: toggleMarkers 500ms linear 2.5s 1 forwards;
+  }
+  
+  .speed-marker-9 {
+    transform: rotate(-117deg);
+    /* animation: toggleMarkers 500ms linear 2s 1 forwards; */
+  }
+
+  .speed-marker-1Class9{
+    
+    animation: toggleMarkers 500ms linear 2s 1 forwards;
+  }
+  
+   .speed-marker-10 {
+    transform: rotate(-130deg);
+    /* animation: toggleMarkers 500ms linear 1.5s 1 forwards; */
+  } 
+
+  .speed-marker-1Class10{
+    
+    animation: toggleMarkers 500ms linear 1.5s 1 forwards;
+  }
+  
+  .speed-marker-11 {
+    transform: rotate(-143deg);
+    /* animation: toggleMarkers 500ms linear 1s 1 forwards; */
+  }
+
+  .speed-marker-1Class11{
+    
+    animation: toggleMarkers 500ms linear 1s 1 forwards;
+  }
+  
+   .speed-marker-12 {
+    transform: rotate(-156deg);
+    /* animation: toggleMarkers 500ms linear 0.5s 1 forwards; */
+  } 
+
+  .speed-marker-1Class12{
+    
+    animation: toggleMarkers 500ms linear 0.5s 1 forwards;
+  }
+
+  
+  .speed-marker-13 {
+    transform: rotate(-169deg);
+    /* animation: toggleMarkers 500ms linear 0s 1 forwards; */
+  }
+
+  .speed-marker-1Class13{
+    
+    animation: toggleMarkers 500ms linear 0s 1 forwards;
+  }
+
+
+
+
+  
+
+
+
+.wrapper1 {
+
+    width: 250px;
+    height: 250px;
+    display: table;
+    margin: 0 auto;
+    background: #001834;
+    padding: 35px 40px 40px;
+    border-radius: 6px;
+    box-shadow: 0 0 1px 0 rgba(0, 24, 52, 0.32), 0 1px 9px -1px #001834;
+}
+.wrapper-header1 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: rgba(255, 255, 255, .74);
+    margin: 30px 0 15px;
+    font-weight: normal;
+}
+.heart1 {
+    margin: 0 8px;
+    display: inline-block;
+    animation: simplePulse ease-in-out 1.1s infinite;
+}
+
+.speedometer1 {
+  width: 100px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transform: rotate(-90deg);
+  top: - 50px;
+}
+
+.speed1 {
+  
+  text-align: center;
+  color: #000000;
+  
+  font-size: 6em;
+  text-shadow: #73d6ff 0 0 10px;
+  transform: rotate(90deg);
+  transform-origin: 0 0;
+  position: relative;
+  left: 1.3em;
+  padding-left: 65%;
+}
+.speed1:before {
+  /* content: '32'; */
+  /* content: var(--content-appache); */
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: 70%;
+  animation: kmh 6s linear 0s 1 forwards;
+}
+.speed1 span {
+  font-size: 0.3em;
+  display: block;
+}
+
+[class^="speed-marker1-"] {
+  height: 200px;
+  opacity: .4;
+}
+
+[class^="speed-marker1-"],
+[class^="speed-marker1-"]:after {
+  width: 5px;
+}
+
+[class^="speed-marker1-"],
+[class^="speed-marker1-"]:after,
+[class^="speed-marker1-"]:before {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  margin-left: -2px;
+  transform-origin: top center;
+}
+
+/* [class^="speed-marker-"]:after {
+  content: ' ';
+  height: 30px;
+} */
+
+[class^="speed-marker1-"]:not(:first-child):before {
+  content: ' ';
+  height: 30px;
+  width: 6px;
+  margin-left: -15px;
+}
+
+[class^="speed-marker1-"]:after,
+[class^="speed-marker1-"]:before {
+  background: #921ae2;
+  box-shadow: 0 0 3px 1.5px #93aeb8;
+}
+
+[class^="speed-marker1-1Class"] {
+  background-color: #dde6e9;
+  box-shadow: 0 0 10px 5px #f3f6f7;
+  
+}
+
+
+
+@keyframes toggleMarkers1 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes kmh1 {
+  0% {
+    content: "0";
+  }
+  10% {
+    content: "10";
+  }
+  20% {
+    content: "20";
+  }
+  30% {
+    content: "30";
+  }
+  40% {
+    content: "40";
+  }
+  50% {
+    content: "50";
+  }
+  60% {
+    content: "60";
+  }
+  70% {
+    content: "70";
+  }
+   80% {
+    content: "80";
+  }
+  90% {
+    content: "90";
+  }
+  100% {
+    content: "100";
+  } 
+}
+.speed-marker1-1 {
+  transform: rotate(-13deg);
+  /* animation: toggleMarkers 500ms linear 6s 1 forwards; */
+}
+
+.speed-marker1-1Class1{
+  
+  animation: toggleMarkers 500ms linear 6s 1 forwards;
+}
+
+.speed-marker1-1:before {
+  transform: rotate(2deg);
+}
+
+.speed-marker1-2 {
+  transform: rotate(-26deg);
+  /* animation: toggleMarkers 500ms linear 5.5s 1 forwards; */
+}
+.speed-marker1-1Class2{
+  
+  animation: toggleMarkers 500ms linear 5.5s 1 forwards;
+}
+
+/* .speed-marker-2:before {
+  transform: rotate(4deg);
+} */
+
+.speed-marker1-3 {
+  transform: rotate(-39deg);
+  /* animation: toggleMarkers 500ms linear 5s 1 forwards; */
+}
+
+.speed-marker1-1Class3{
+  
+  animation: toggleMarkers 500ms linear 5s 1 forwards;
+}
+
+/*  .speed-marker-3:before {
+  transform: rotate(6deg);
+}
+ */
+.speed-marker1-4 {
+  transform: rotate(-52deg);
+  /* animation: toggleMarkers 500ms linear 4.5s 1 forwards; */
+}
+/* .speed-marker-4:before {
+  transform: rotate(8deg);
+} */
+
+.speed-marker1-1Class4{
+  
+  animation: toggleMarkers 500ms linear 4.5s 1 forwards;
+}
+
+.speed-marker1-5 {
+  transform: rotate(-65deg);
+  /* animation: toggleMarkers 500ms linear 4s 1 forwards; */
+}
+.speed-marker1-1Class5{
+  
+  animation: toggleMarkers 500ms linear 4s 1 forwards;
+}
+
+/* .speed-marker-5:before {
+  transform: rotate(10deg);
+} */
+
+.speed-marker1-6 {
+  transform: rotate(-78deg);
+  /* animation: toggleMarkers 500ms linear 3.5s 1 forwards; */
+}
+.speed-marker1-1Class6{
+  animation: toggleMarkers 500ms linear 3.5s 1 forwards;
+}
+
+/* .speed-marker-6:before {
+  transform: rotate(12deg);
+} */
+
+.speed-marker1-7 {
+  transform: rotate(-91deg);
+  /* animation: toggleMarkers 500ms linear 3s 1 forwards; */
+}
+
+.speed-marker1-1Class7{
+  animation: toggleMarkers 500ms linear 3s 1 forwards;
+}
+
+ .speed-marker1-8 {
+  transform: rotate(-104deg);
+  /* animation: toggleMarkers 500ms linear 2.5s 1 forwards; */
+} 
+
+.speed-marker1-1Class8{
+  animation: toggleMarkers 500ms linear 2.5s 1 forwards;
+}
+
+.speed-marker1-9 {
+  transform: rotate(-117deg);
+  /* animation: toggleMarkers 500ms linear 2s 1 forwards; */
+}
+
+.speed-marker1-1Class9{
+  
+  animation: toggleMarkers 500ms linear 2s 1 forwards;
+}
+
+ .speed-marker1-10 {
+  transform: rotate(-130deg);
+  /* animation: toggleMarkers 500ms linear 1.5s 1 forwards; */
+} 
+
+.speed-marker1-1Class10{
+  
+  animation: toggleMarkers 500ms linear 1.5s 1 forwards;
+}
+
+.speed-marker1-11 {
+  transform: rotate(-143deg);
+  /* animation: toggleMarkers 500ms linear 1s 1 forwards; */
+}
+
+.speed-marker1-1Class11{
+  
+  animation: toggleMarkers 500ms linear 1s 1 forwards;
+}
+
+ .speed-marker1-12 {
+  transform: rotate(-156deg);
+  /* animation: toggleMarkers 500ms linear 0.5s 1 forwards; */
+} 
+
+.speed-marker1-1Class12{
+  
+  animation: toggleMarkers 500ms linear 0.5s 1 forwards;
+}
+
+
+.speed-marker1-13 {
+  transform: rotate(-169deg);
+  /* animation: toggleMarkers 500ms linear 0s 1 forwards; */
+}
+
+.speed-marker1-1Class13{
+  
+  animation: toggleMarkers 500ms linear 0s 1 forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.wrapper2 {
+
+    width: 250px;
+    height: 250px;
+    display: table;
+    margin: 0 auto;
+    background: #001834;
+    padding: 35px 40px 40px;
+    border-radius: 6px;
+    box-shadow: 0 0 1px 0 rgba(0, 24, 52, 0.32), 0 1px 9px -1px #001834;
+}
+.wrapper-header2 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: rgba(255, 255, 255, .74);
+    margin: 30px 0 15px;
+    font-weight: normal;
+}
+.heart2 {
+    margin: 0 8px;
+    display: inline-block;
+    animation: simplePulse ease-in-out 1.1s infinite;
+}
+
+.speedometer2 {
+  width: 100px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transform: rotate(-90deg);
+  top: - 50px;
+}
+
+.speed2 {
+  
+  text-align: center;
+  color: #000000;
+  
+  font-size: 6em;
+  text-shadow: #73d6ff 0 0 10px;
+  transform: rotate(90deg);
+  transform-origin: 0 0;
+  position: relative;
+  left: 1.3em;
+  padding-left: 60%;
+}
+.speed2:before {
+  /* content: '32'; */
+  /* content: var(--content-appache); */
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: 70%;
+  animation: kmh 6s linear 0s 1 forwards;
+}
+.speed2 span {
+  font-size: 0.3em;
+  display: block;
+}
+
+[class^="speed-marker2-"] {
+  height: 200px;
+  opacity: .4;
+}
+
+[class^="speed-marker2-"],
+[class^="speed-marker2-"]:after {
+  width: 5px;
+}
+
+[class^="speed-marker2-"],
+[class^="speed-marker2-"]:after,
+[class^="speed-marker2-"]:before {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  margin-left: -2px;
+  transform-origin: top center;
+}
+
+/* [class^="speed-marker-"]:after {
+  content: ' ';
+  height: 30px;
+} */
+
+[class^="speed-marker2-"]:not(:first-child):before {
+  content: ' ';
+  height: 30px;
+  width: 6px;
+  margin-left: -15px;
+}
+
+[class^="speed-marker2-"]:after,
+[class^="speed-marker2-"]:before {
+  background: #921ae2;
+  box-shadow: 0 0 3px 1.5px #93aeb8;
+}
+
+[class^="speed-marker2-1Class"] {
+  background-color: #dde6e9;
+  box-shadow: 0 0 10px 5px #f3f6f7;
+  
+}
+
+
+
+@keyframes toggleMarkers2 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes kmh2 {
+  0% {
+    content: "0";
+  }
+  10% {
+    content: "10";
+  }
+  20% {
+    content: "20";
+  }
+  30% {
+    content: "30";
+  }
+  40% {
+    content: "40";
+  }
+  50% {
+    content: "50";
+  }
+  60% {
+    content: "60";
+  }
+  70% {
+    content: "70";
+  }
+   80% {
+    content: "80";
+  }
+  90% {
+    content: "90";
+  }
+  100% {
+    content: "100";
+  } 
+}
+.speed-marker2-1 {
+  transform: rotate(-13deg);
+  /* animation: toggleMarkers 500ms linear 6s 1 forwards; */
+}
+
+.speed-marker2-1Class1{
+  
+  animation: toggleMarkers 500ms linear 6s 1 forwards;
+}
+
+.speed-marker2-1:before {
+  transform: rotate(2deg);
+}
+
+.speed-marker2-2 {
+  transform: rotate(-26deg);
+  /* animation: toggleMarkers 500ms linear 5.5s 1 forwards; */
+}
+.speed-marker2-1Class2{
+  
+  animation: toggleMarkers 500ms linear 5.5s 1 forwards;
+}
+
+/* .speed-marker-2:before {
+  transform: rotate(4deg);
+} */
+
+.speed-marker2-3 {
+  transform: rotate(-39deg);
+  /* animation: toggleMarkers 500ms linear 5s 1 forwards; */
+}
+
+.speed-marker2-1Class3{
+  
+  animation: toggleMarkers 500ms linear 5s 1 forwards;
+}
+
+/*  .speed-marker-3:before {
+  transform: rotate(6deg);
+}
+ */
+.speed-marker2-4 {
+  transform: rotate(-52deg);
+  /* animation: toggleMarkers 500ms linear 4.5s 1 forwards; */
+}
+/* .speed-marker-4:before {
+  transform: rotate(8deg);
+} */
+
+.speed-marker2-1Class4{
+  
+  animation: toggleMarkers 500ms linear 4.5s 1 forwards;
+}
+
+.speed-marker2-5 {
+  transform: rotate(-65deg);
+  /* animation: toggleMarkers 500ms linear 4s 1 forwards; */
+}
+.speed-marker2-1Class5{
+  
+  animation: toggleMarkers 500ms linear 4s 1 forwards;
+}
+
+/* .speed-marker-5:before {
+  transform: rotate(10deg);
+} */
+
+.speed-marker2-6 {
+  transform: rotate(-78deg);
+  /* animation: toggleMarkers 500ms linear 3.5s 1 forwards; */
+}
+.speed-marker2-1Class6{
+  animation: toggleMarkers 500ms linear 3.5s 1 forwards;
+}
+
+/* .speed-marker-6:before {
+  transform: rotate(12deg);
+} */
+
+.speed-marker2-7 {
+  transform: rotate(-91deg);
+  /* animation: toggleMarkers 500ms linear 3s 1 forwards; */
+}
+
+.speed-marker2-1Class7{
+  animation: toggleMarkers 500ms linear 3s 1 forwards;
+}
+
+ .speed-marker2-8 {
+  transform: rotate(-104deg);
+  /* animation: toggleMarkers 500ms linear 2.5s 1 forwards; */
+} 
+
+.speed-marker2-1Class8{
+  animation: toggleMarkers 500ms linear 2.5s 1 forwards;
+}
+
+.speed-marker2-9 {
+  transform: rotate(-117deg);
+  /* animation: toggleMarkers 500ms linear 2s 1 forwards; */
+}
+
+.speed-marker2-1Class9{
+  
+  animation: toggleMarkers 500ms linear 2s 1 forwards;
+}
+
+ .speed-marker2-10 {
+  transform: rotate(-130deg);
+  /* animation: toggleMarkers 500ms linear 1.5s 1 forwards; */
+} 
+
+.speed-marker2-1Class10{
+  
+  animation: toggleMarkers 500ms linear 1.5s 1 forwards;
+}
+
+.speed-marker2-11 {
+  transform: rotate(-143deg);
+  /* animation: toggleMarkers 500ms linear 1s 1 forwards; */
+}
+
+.speed-marker2-1Class11{
+  
+  animation: toggleMarkers 500ms linear 1s 1 forwards;
+}
+
+ .speed-marker2-12 {
+  transform: rotate(-156deg);
+  /* animation: toggleMarkers 500ms linear 0.5s 1 forwards; */
+} 
+
+.speed-marker2-1Class12{
+  
+  animation: toggleMarkers 500ms linear 0.5s 1 forwards;
+}
+
+
+.speed-marker2-13 {
+  transform: rotate(-169deg);
+  /* animation: toggleMarkers 500ms linear 0s 1 forwards; */
+}
+
+.speed-marker2-1Class13{
+  
+  animation: toggleMarkers 500ms linear 0s 1 forwards;
+}
+
+
+
+

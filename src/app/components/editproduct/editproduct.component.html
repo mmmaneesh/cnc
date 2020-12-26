@@ -1,0 +1,119 @@
+<button class="close buttoncolor" mat-button (click)="onNoClick()">X</button>
+<div class="container custommodal">
+    <mat-toolbar class="toolbarcolor" style="padding-left: 45%;">
+        Edit PRODUCT
+    </mat-toolbar>
+    
+    
+    <div class="innercontainer">
+        <form #form="ngForm" (submit)="onSubmit(form)" class="text-center border border-light p-5">
+           <input type="hidden" name="Productid" #Productid="ngModel" [(ngModel)] = "service.formData.Productid" />
+            <div class="row" style="text-align: left;">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" > PRODUCT </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" name="Product" #Product="ngModel" [(ngModel)]="service.formData.Product" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row moveup">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >CODE </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" name="Code" #Code="ngModel" [(ngModel)]="service.formData.Code" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row moveup">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >QUANTITY </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" name="Quantity" #Quantity="ngModel" [(ngModel)]="service.formData.Quantity" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row moveup">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >CALORIE </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" name="Calorie" #Calorie="ngModel" [(ngModel)]="service.formData.Calorie" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row moveup">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >PROTEIN </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" name="Protein" #Protein="ngModel" [(ngModel)]="service.formData.Protein" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row moveup">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >CARBOHYDRATE </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" name="Carbohydrate" #Carbohydrate="ngModel" [(ngModel)]="service.formData.Carbohydrate" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row moveup">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >FAT </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" name="Fat" #Fat="ngModel" [(ngModel)]="service.formData.Fat" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row moveup">
+                <div class="col-xl-6">
+                    <mat-label class="labelclass" >SODIUM </mat-label>
+                </div>
+                <div class="col-xl-3">
+                    <div class="input-group input-group-sm mb-4">
+                        
+                        <input type="text" name="Sodium" #Sodium="ngModel" [(ngModel)]="service.formData.Sodium" placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        
+                    </div>
+                </div>
+            </div>
+  
+            
+            <div style="text-align: center;">
+                <button type="submit" mat-button class="btn btn-outline-primary mb-2">SAVE</button>
+                
+            </div>
+      
+        </form>
+    </div>
+    
+      
+</div>
+

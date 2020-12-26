@@ -1,0 +1,25 @@
+<!-- <button class="close buttoncolor"  mat-button (click)="onNoClick()">X</button> -->
+<div class="container custommodal">
+    <div class="row toolbarcolor">
+        <div class="col-md-3">
+            
+        </div>
+        <div class="col-md-5" style="text-align: center;">
+            <h5>Alert</h5>
+        </div>
+        <div class="col-md-4" style="text-align: right;">
+
+           
+            <svg-icon src="../../../assets/images/close.svg" [stretch]="true" (click)="onNoClick()"
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <!-- <button class="close buttoncolor" mat-button (click)="onNoClick()">X</button> -->
+        </div>
+    </div>
+
+    <div class="innercontainer" style="text-align: center;">
+        <h5>{{this.textvalue}}</h5>
+    </div>
+
+
+</div>

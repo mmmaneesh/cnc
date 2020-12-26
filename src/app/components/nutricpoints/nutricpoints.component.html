@@ -1,0 +1,38 @@
+<div class="container custommodal">
+    <div class="row toolbarcolor">
+        <div class="col-md-2">
+            
+        </div>
+        <div class="col-md-7" style="text-align: center;">
+            <h5>Edit Nutric </h5>
+        </div>
+        <div class="col-md-3" style="text-align: right;">
+            
+            <svg-icon src="../../../assets/images/note.svg" [stretch]="true"  (click)="submitdata()"
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <svg-icon src="../../../assets/images/close.svg" [stretch]="true" (click)="onNoClick()"
+                [svgStyle]="{'width.px':25,'height.px':25,'fill':'rgb(255,255,255)','padding.px':1,'margin.px':3}">
+            </svg-icon>
+            <!-- <button class="close buttoncolor" mat-button (click)="onNoClick()">X</button> -->
+        </div>
+    </div>
+    <div class="innercontainer">
+        <form class="text-center border border-light p-5">
+            <div class="row" style="text-align: left;">
+                    <div class="col-xl-6">
+                        <mat-label class="labelclass" >{{this.datalabel}} </mat-label>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="input-group input-group-sm mb-4">
+                            
+                            <input type="text" [(ngModel)]="this.datavalue"   [ngModelOptions]="{standalone: true}"  placeholder="Enter text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                              
+                        </div>
+                    </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

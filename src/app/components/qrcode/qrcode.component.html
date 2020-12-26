@@ -1,0 +1,31 @@
+<button class="close buttoncolor" mat-button (click)="onNoClick()">X</button>
+
+<div class="container custommodal">
+    <mat-toolbar class="toolbarcolor" style="padding-left: 45%;">
+        QR Code
+    </mat-toolbar>
+    
+    
+    <div class="innercontainer">
+        <div id="MyDIv" class="row">
+            <div class="col-md-6">
+                <div id="pdfTable" #pdfTable>
+                    <qr-code value={{this.qrvalue}} [size]="160"></qr-code>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <span style="color: white; font-size: large; font-weight: bold;">{{this.qrvalue}}</span>
+            </div>
+            
+            
+        </div>
+        <div style="text-align: center;">
+            <button type="submit" mat-button class="btn btn-outline-primary mb-2">SAVE</button>
+            <button type="submit" mat-button class="btn btn-outline-primary mb-2" (click)="downloadAsPDF()">Generate PDF</button>
+            
+        </div>
+    </div>
+    
+      
+</div>
+
